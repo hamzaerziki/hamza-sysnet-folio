@@ -57,7 +57,7 @@ export const Certificates = () => {
                   <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
                     <span className="text-white text-xs font-bold">✓</span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Certified</span>
+                  <span className="text-sm text-muted-foreground">{t('certificates.certified')}</span>
                 </div>
               </Card>
             ))}

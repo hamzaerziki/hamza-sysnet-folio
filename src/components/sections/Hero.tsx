@@ -96,7 +96,9 @@ export const Hero = () => {
               {t('contact.phone')}: 0624618601
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/hamza-erziki/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-primary transition-smooth"
             >
               {t('contact.linkedin')}

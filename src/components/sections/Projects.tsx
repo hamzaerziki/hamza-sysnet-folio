@@ -42,12 +42,6 @@ export const Projects = () => {
       technologies: ['MISP', 'Threat Intelligence', 'IOCs'],
       featured: true,
     },
-    {
-      title: 'projects.devops',
-      description: 'projects.devops.desc',
-      technologies: ['Docker', 'Git', 'CI/CD', 'Automation'],
-      featured: false,
-    },
   ];
 
   return (

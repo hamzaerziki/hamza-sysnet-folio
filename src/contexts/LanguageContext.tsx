@@ -96,6 +96,9 @@ const translations = {
     'contact.email': 'E-mail',
     'contact.phone': 'Téléphone',
     'contact.linkedin': 'LinkedIn',
+    
+    // Certificates
+    'certificates.certified': 'Certifié',
   },
   en: {
     // Navigation
@@ -182,6 +185,9 @@ const translations = {
     'contact.email': 'Email',
     'contact.phone': 'Phone',
     'contact.linkedin': 'LinkedIn',
+    
+    // Certificates
+    'certificates.certified': 'Certified',
   }
 };
 

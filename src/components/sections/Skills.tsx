@@ -57,16 +57,6 @@ export const Skills = () => {
                         className="flex items-center justify-between p-2 rounded-md bg-muted/50 hover:bg-accent transition-smooth"
                       >
                         <span className="text-sm font-medium">{skill}</span>
-                        <div className="flex gap-1">
-                          {[1, 2, 3, 4].map((dot) => (
-                            <div 
-                              key={dot}
-                              className={`w-2 h-2 rounded-full ${
-                                dot <= 3 ? 'bg-primary' : 'bg-border'
-                              }`}
-                            />
-                          ))}
-                        </div>
                       </div>
                     ))}
                   </div>
