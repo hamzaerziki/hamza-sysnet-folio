@@ -100,7 +100,7 @@ export const About = () => {
                   
                   <div className="space-y-3 text-sm">
                     <div className="p-3 bg-muted/30 rounded-lg border border-border/30">
-                      <p className="font-medium">2ᵉ année - Infrastructures Digitales</p>
+                      <p className="font-medium">{t('about.education')}</p>
                     </div>
                     <div className="p-3 bg-primary/10 rounded-lg border border-primary/20">
                       <p className="text-primary font-semibold">

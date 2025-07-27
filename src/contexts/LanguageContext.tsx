@@ -23,7 +23,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Étudiant en systèmes et réseaux informatiques',
     'hero.subtitle': 'Technicien Systèmes & Réseaux',
-    'hero.description': 'Passionate about systems, networks, and the art of solving real IT challenges.',
+    'hero.description': 'Passionné par les systèmes, les réseaux et l\'art de résoudre de vrais défis informatiques.',
     'hero.cta.projects': 'Voir mes projets',
     'hero.cta.about': 'En savoir plus',
     'hero.availability': 'Ouvert aux opportunités',
@@ -39,6 +39,7 @@ const translations = {
     'about.passion.security': 'Cybersecurity (MISP, pare-feux)',
     'about.passion.monitoring': 'Supervision & Monitoring (Grafana, Zabbix)',
     'about.approach': 'Approche orientée pratique et projets concrets',
+    'about.education': '2ᵉ année - Infrastructures Digitales',
     
     // Positions Section
     'positions.title': 'Postes visés',
@@ -128,6 +129,7 @@ const translations = {
     'about.passion.security': 'Cybersecurity (MISP, firewalls)',
     'about.passion.monitoring': 'Supervision & Monitoring (Grafana, Zabbix)',
     'about.approach': 'Practical approach focused on concrete projects',
+    'about.education': '2nd year - Digital Infrastructures',
     
     // Positions Section
     'positions.title': 'Target roles',
