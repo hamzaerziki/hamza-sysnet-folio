@@ -58,7 +58,7 @@ export const Hero = () => {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t('hero.description')}
+              Passionate about systems, networks, and the art of solving real IT challenges.
             </p>
           </div>
 

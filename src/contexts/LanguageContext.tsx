@@ -23,7 +23,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Étudiant en systèmes et réseaux informatiques',
     'hero.subtitle': 'Technicien Systèmes & Réseaux',
-    'hero.description': 'Passionné par les infrastructures digitales, la cybersécurité et le DevOps',
+    'hero.description': 'Passionate about systems, networks, and the art of solving real IT challenges.',
     'hero.cta.projects': 'Voir mes projets',
     'hero.cta.about': 'En savoir plus',
     'hero.availability': 'Ouvert aux opportunités',
@@ -112,7 +112,7 @@ const translations = {
     // Hero Section
     'hero.title': 'Student in Computer Systems and Networks',
     'hero.subtitle': 'Systems & Networks Technician',
-    'hero.description': 'Passionate about digital infrastructures, cybersecurity and DevOps',
+    'hero.description': 'Passionate about systems, networks, and the art of solving real IT challenges.',
     'hero.cta.projects': 'View my projects',
     'hero.cta.about': 'Learn more',
     'hero.availability': 'Open to opportunities',
