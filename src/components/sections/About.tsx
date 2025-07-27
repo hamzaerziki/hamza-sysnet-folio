@@ -76,10 +76,14 @@ export const About = () => {
               <Card className="p-8 gradient-card shadow-card border-border/50 max-w-sm w-full hover:scale-105 transition-all duration-500 group">
                 <div className="text-center space-y-6">
                   <div className="relative">
-                    <div className="w-32 h-32 mx-auto bg-gradient-primary rounded-full flex items-center justify-center shadow-purple group-hover:shadow-glow transition-all duration-500 animate-pulse">
-                      <span className="text-3xl font-bold text-white">HE</span>
+                    <div className="w-32 h-32 mx-auto rounded-full overflow-hidden shadow-purple group-hover:shadow-glow transition-all duration-500 ring-4 ring-primary/20 group-hover:ring-primary/40">
+                      <img 
+                        src="/lovable-uploads/3a053b59-f543-4bf9-92fd-f7bc07986f53.png" 
+                        alt="Hamza Erziki"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center animate-bounce">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center animate-bounce shadow-lg">
                       <div className="w-3 h-3 bg-white rounded-full"></div>
                     </div>
                   </div>

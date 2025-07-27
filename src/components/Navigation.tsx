@@ -38,7 +38,6 @@ export const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             {[
               { key: 'about', id: 'about' },
-              { key: 'positions', id: 'positions' },
               { key: 'projects', id: 'projects' },
               { key: 'skills', id: 'skills' },
               { key: 'certificates', id: 'certificates' },

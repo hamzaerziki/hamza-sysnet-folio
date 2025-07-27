@@ -7,7 +7,7 @@ export const Skills = () => {
   const skillCategories = [
     {
       category: 'skills.systems',
-      skills: ['Ubuntu', 'Debian', 'Windows Server', 'Active Directory'],
+      skills: ['Ubuntu', 'Kali', 'Windows Server', 'Active Directory'],
     },
     {
       category: 'skills.virtualization',
@@ -23,15 +23,15 @@ export const Skills = () => {
     },
     {
       category: 'skills.monitoring',
-      skills: ['Zabbix', 'Grafana', 'Prometheus', 'PRTG'],
+      skills: ['Zabbix', 'Grafana', 'Prometheus'],
     },
     {
       category: 'skills.networks',
-      skills: ['Cisco', 'VLAN', 'TCP/IP', 'EVE-NG'],
+      skills: ['Cisco', 'VLAN', 'TCP/IP', 'SDN'],
     },
     {
       category: 'skills.languages',
-      skills: ['Bash', 'Python', 'SQL', 'HTML/CSS'],
+      skills: ['Bash', 'Python', 'SQL', 'HTML/CSS', 'PowerShell'],
     },
   ];
 
