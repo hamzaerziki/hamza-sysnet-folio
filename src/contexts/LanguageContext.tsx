@@ -30,7 +30,7 @@ const translations = {
     
     // About Section
     'about.title': 'À propos de moi',
-    'about.description': 'Je suis un étudiant en 2ᵉ année de Technicien spécialisé – Infrastructures Digitales, passionné par les technologies systèmes et réseaux.',
+    'about.description': 'Pour moi, l\'informatique n\'est pas seulement un domaine d\'étude, mais une façon de résoudre des problèmes concrets. J\'aime comprendre comment les systèmes, les réseaux et la sécurité s\'imbriquent pour créer des solutions fiables. Curieux de nature, j\'apprends en réalisant des projets pratiques : labs virtuels, automatisation de tâches, amélioration de performances réseau… Ce portfolio reflète mon parcours, mes expériences et ma volonté de progresser dans le monde de l\'IT.',
     'about.passion': 'Mes domaines de passion :',
     'about.passion.systems': 'Administration systèmes (Linux, Windows)',
     'about.passion.virtualization': 'Virtualisation (VMware, Proxmox)',
@@ -119,7 +119,7 @@ const translations = {
     
     // About Section
     'about.title': 'About me',
-    'about.description': 'I am a 2nd year student in Specialized Technician – Digital Infrastructures, passionate about systems and networks technologies.',
+    'about.description': 'Technology for me is not just a field of study, but a way to solve real problems. I enjoy exploring how systems, networks, and security work together to create reliable solutions. I\'m curious by nature, always learning through hands-on projects like building virtual labs, automating tasks, and improving network performance. This portfolio is a glimpse of my journey, the skills I\'m developing, and my motivation to grow as an IT professional.',
     'about.passion': 'My areas of passion:',
     'about.passion.systems': 'Systems Administration (Linux, Windows)',
     'about.passion.virtualization': 'Virtualization (VMware, Proxmox)',
