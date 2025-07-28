@@ -40,33 +40,33 @@ export const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Main Content */}
-          <div className="mb-6">
-            <p className="text-sm font-medium text-primary mb-2 tracking-wide uppercase">
+          <div className="mb-6 animate-fade-in">
+            <p className="text-sm font-medium text-primary mb-2 tracking-wide uppercase animate-pulse">
               {t('hero.availability')}
             </p>
-            <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground mb-4">
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-muted-foreground mb-4">
               {t('hero.subtitle')}
             </h2>
           </div>
 
           {/* Typewriter Effect */}
           <div className="mb-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 px-4 sm:px-0">
               <span className="inline-block min-h-[1.2em]">
                 {displayText}
-                <span className="animate-pulse">|</span>
+                <span className="animate-pulse text-primary">|</span>
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4 leading-relaxed">
               {t('hero.description')}
             </p>
           </div>
 
           {/* Call to Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
             <Button 
               size="lg" 
-              className="gradient-primary text-white font-semibold shadow-purple"
+              className="gradient-primary text-white font-semibold shadow-purple hover:shadow-glow hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               onClick={() => scrollToSection('projects')}
             >
               {t('hero.cta.projects')}
@@ -74,7 +74,7 @@ export const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-border hover:bg-accent font-semibold"
+              className="border-border hover:bg-accent font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               onClick={() => scrollToSection('about')}
             >
               {t('hero.cta.about')}
@@ -82,16 +82,16 @@ export const Hero = () => {
           </div>
 
           {/* Contact Links */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-muted-foreground">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-sm text-muted-foreground px-4">
             <a 
               href="mailto:hamzaerziki@outlook.com" 
-              className="hover:text-primary transition-smooth"
+              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
             >
               {t('contact.email')}: hamzaerziki@outlook.com
             </a>
             <a 
               href="tel:0624618601" 
-              className="hover:text-primary transition-smooth"
+              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
             >
               {t('contact.phone')}: 0624618601
             </a>
@@ -99,7 +99,7 @@ export const Hero = () => {
               href="https://www.linkedin.com/in/hamza-erziki/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-smooth"
+              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
             >
               {t('contact.linkedin')}
             </a>
