@@ -21,7 +21,7 @@ export const Projects = () => {
     {
       title: 'projects.nas',
       description: 'projects.nas.desc',
-      technologies: ['OpenMediaVault', 'Storage', 'Networks'],
+      technologies: ['OpenMediaVault', 'Storage', 'Networks', 'Hardware'],
       featured: true,
     },
     {
@@ -39,7 +39,7 @@ export const Projects = () => {
     {
       title: 'projects.misp',
       description: 'projects.misp.desc',
-      technologies: ['MISP', 'Threat Intelligence', 'IOCs'],
+      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
       featured: true,
     },
   ];
