@@ -67,17 +67,19 @@ export const Navigation = () => {
             
             {/* CV Download Button - Desktop */}
             <Button 
-              variant="outline" 
+              variant="default" 
               size="sm"
               onClick={handleDownloadCV}
-              className="gradient-primary border-primary/20 hover:bg-primary/10 text-primary font-medium"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-lg"
             >
               {t('cv.download')}
             </Button>
           </div>
 
           <div className="flex items-center gap-4">
-            <LanguageToggle />
+            <div className="hidden md:block">
+              <LanguageToggle />
+            </div>
             
             {/* Mobile Menu Button */}
             <Button
@@ -95,43 +97,68 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu Overlay */}
+        {/* Mobile Navigation Overlay */}
         {isMobileMenuOpen && (
           <div 
-            className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 md:hidden"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
         
-        {/* Mobile Navigation Menu */}
-        <div className={`md:hidden fixed left-0 right-0 top-full bg-background/98 backdrop-blur-xl border-b border-border/20 shadow-lg z-50 transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+        {/* Mobile Navigation Sidebar */}
+        <div className={`fixed top-0 left-0 h-full w-80 bg-background/98 backdrop-blur-xl border-r border-border/20 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
-          <div className="container mx-auto px-4 py-6 space-y-2">
-            {[
-              { key: 'about', id: 'about' },
-              { key: 'projects', id: 'projects' },
-              { key: 'skills', id: 'skills' },
-              { key: 'certificates', id: 'certificates' },
-            ].map(({ key, id }) => (
-              <button
-                key={key}
-                onClick={() => scrollToSection(id)}
-                className="block w-full text-left py-4 px-4 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300 border border-border/10 hover:border-primary/20"
+          <div className="p-6">
+            {/* Sidebar Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="text-lg font-bold gradient-primary bg-clip-text text-transparent">
+                Hamza Erziki
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-2 hover:bg-accent"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                {t(`nav.${key}`)}
-              </button>
-            ))}
+                <X className="h-5 w-5" />
+              </Button>
+            </div>
             
-            {/* CV Download Button - Mobile */}
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={handleDownloadCV}
-              className="w-full gradient-primary border-primary/20 hover:bg-primary/10 text-primary font-medium mt-4"
-            >
-              {t('cv.download')}
-            </Button>
+            {/* Navigation Links */}
+            <div className="space-y-3">
+              {[
+                { key: 'about', id: 'about' },
+                { key: 'projects', id: 'projects' },
+                { key: 'skills', id: 'skills' },
+                { key: 'certificates', id: 'certificates' },
+              ].map(({ key, id }) => (
+                <button
+                  key={key}
+                  onClick={() => scrollToSection(id)}
+                  className="block w-full text-left py-3 px-4 text-base font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300 border border-transparent hover:border-primary/20"
+                >
+                  {t(`nav.${key}`)}
+                </button>
+              ))}
+              
+              {/* CV Download Button - Mobile Sidebar */}
+              <div className="pt-4 border-t border-border/20 mt-6">
+                <Button 
+                  variant="default" 
+                  size="lg"
+                  onClick={handleDownloadCV}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-lg"
+                >
+                  {t('cv.download')}
+                </Button>
+              </div>
+              
+              {/* Language Toggle in Sidebar */}
+              <div className="pt-4">
+                <LanguageToggle />
+              </div>
+            </div>
           </div>
         </div>
       </div>
