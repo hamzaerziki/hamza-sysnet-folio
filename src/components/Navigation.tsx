@@ -106,44 +106,47 @@ export const Navigation = () => {
         )}
         
         {/* Mobile Navigation Sidebar */}
-        <div className={`fixed top-0 left-0 h-full w-80 bg-background/98 backdrop-blur-xl border-r border-border/20 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        <div className={`fixed top-0 left-0 h-screen w-80 max-w-[80vw] bg-background border-r border-border/20 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
-          <div className="p-6">
+          <div className="flex flex-col h-full">
             {/* Sidebar Header */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between p-6 border-b border-border/10">
               <div className="text-lg font-bold gradient-primary bg-clip-text text-transparent">
                 Hamza Erziki
               </div>
               <Button
                 variant="ghost"
                 size="sm"
-                className="p-2 hover:bg-accent"
+                className="p-2 hover:bg-accent rounded-full"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X className="h-5 w-5" />
               </Button>
             </div>
             
-            {/* Navigation Links */}
-            <div className="space-y-3">
-              {[
-                { key: 'about', id: 'about' },
-                { key: 'projects', id: 'projects' },
-                { key: 'skills', id: 'skills' },
-                { key: 'certificates', id: 'certificates' },
-              ].map(({ key, id }) => (
-                <button
-                  key={key}
-                  onClick={() => scrollToSection(id)}
-                  className="block w-full text-left py-3 px-4 text-base font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300 border border-transparent hover:border-primary/20"
-                >
-                  {t(`nav.${key}`)}
-                </button>
-              ))}
+            {/* Navigation Content */}
+            <div className="flex-1 overflow-y-auto p-6">
+              {/* Navigation Links */}
+              <div className="space-y-3">
+                {[
+                  { key: 'about', id: 'about' },
+                  { key: 'projects', id: 'projects' },
+                  { key: 'skills', id: 'skills' },
+                  { key: 'certificates', id: 'certificates' },
+                ].map(({ key, id }) => (
+                  <button
+                    key={key}
+                    onClick={() => scrollToSection(id)}
+                    className="block w-full text-left py-4 px-4 text-base font-medium text-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300 border border-transparent hover:border-primary/20"
+                  >
+                    {t(`nav.${key}`)}
+                  </button>
+                ))}
+              </div>
               
               {/* CV Download Button - Mobile Sidebar */}
-              <div className="pt-4 border-t border-border/20 mt-6">
+              <div className="pt-6 border-t border-border/20 mt-6">
                 <Button 
                   variant="default" 
                   size="lg"
@@ -155,8 +158,10 @@ export const Navigation = () => {
               </div>
               
               {/* Language Toggle in Sidebar */}
-              <div className="pt-4">
-                <LanguageToggle />
+              <div className="pt-6">
+                <div className="flex justify-center">
+                  <LanguageToggle />
+                </div>
               </div>
             </div>
           </div>
