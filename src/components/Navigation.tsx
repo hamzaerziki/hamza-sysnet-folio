@@ -26,6 +26,14 @@ export const Navigation = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/cv-hamza-erziki.pdf';
+    link.download = 'CV-Hamza-Erziki.pdf';
+    link.click();
+    setIsMobileMenuOpen(false); // Close mobile menu after download
+  };
+
   return (
     <nav className={`fixed top-0 w-full z-50 transition-smooth ${
       isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-card border-b border-border/20' : 'bg-transparent'
@@ -56,6 +64,16 @@ export const Navigation = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
+            
+            {/* CV Download Button - Desktop */}
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={handleDownloadCV}
+              className="gradient-primary border-primary/20 hover:bg-primary/10 text-primary font-medium"
+            >
+              {t('cv.download')}
+            </Button>
           </div>
 
           <div className="flex items-center gap-4">
@@ -104,6 +122,16 @@ export const Navigation = () => {
                 {t(`nav.${key}`)}
               </button>
             ))}
+            
+            {/* CV Download Button - Mobile */}
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={handleDownloadCV}
+              className="w-full gradient-primary border-primary/20 hover:bg-primary/10 text-primary font-medium mt-4"
+            >
+              {t('cv.download')}
+            </Button>
           </div>
         </div>
       </div>
