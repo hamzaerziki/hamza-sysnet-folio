@@ -22,7 +22,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Étudiant en systèmes et réseaux informatiques',
-    'hero.subtitle': 'Technicien Systèmes & Réseaux',
+    'hero.subtitle': 'HELLO IM HAMZA ERZIKI',
     'hero.description': 'Passionné par les systèmes, les réseaux et l\'art de résoudre de vrais défis informatiques.',
     'hero.cta.projects': 'Voir mes projets',
     'hero.cta.about': 'En savoir plus',
@@ -112,7 +112,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Student in Computer Systems and Networks',
-    'hero.subtitle': 'Systems & Networks Technician',
+    'hero.subtitle': 'HELLO IM HAMZA ERZIKI',
     'hero.description': 'Passionate about systems, networks, and the art of solving real IT challenges.',
     'hero.cta.projects': 'View my projects',
     'hero.cta.about': 'Learn more',

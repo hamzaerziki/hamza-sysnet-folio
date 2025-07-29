@@ -77,11 +77,19 @@ export const Navigation = () => {
           </div>
         </div>
 
+        {/* Mobile Navigation Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div 
+            className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+        
         {/* Mobile Navigation Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`md:hidden fixed left-0 right-0 top-full bg-background/98 backdrop-blur-xl border-b border-border/20 shadow-lg z-50 transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}>
-          <div className="py-4 space-y-2 border-t border-border/20 mt-4">
+          <div className="container mx-auto px-4 py-6 space-y-2">
             {[
               { key: 'about', id: 'about' },
               { key: 'projects', id: 'projects' },
@@ -91,7 +99,7 @@ export const Navigation = () => {
               <button
                 key={key}
                 onClick={() => scrollToSection(id)}
-                className="block w-full text-left py-3 px-4 text-base font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300"
+                className="block w-full text-left py-4 px-4 text-lg font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-lg transition-all duration-300 border border-border/10 hover:border-primary/20"
               >
                 {t(`nav.${key}`)}
               </button>
