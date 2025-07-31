@@ -8,9 +8,11 @@ export const CVDownload = () => {
   const handleDownload = () => {
     // Create a functional PDF download link
     const link = document.createElement('a');
-    link.href = '/cv-hamza-erziki.pdf'; // This should be placed in the public folder
-    link.download = 'CV-Hamza-Erziki.pdf';
+    link.href = '/Hamza_Erziki_CV.pdf';
+    link.download = 'Hamza_Erziki_CV.pdf';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (

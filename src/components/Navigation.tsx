@@ -28,9 +28,11 @@ export const Navigation = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv-hamza-erziki.pdf';
-    link.download = 'CV-Hamza-Erziki.pdf';
+    link.href = '/Hamza_Erziki_CV.pdf';
+    link.download = 'Hamza_Erziki_CV.pdf';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
     setIsMobileMenuOpen(false); // Close mobile menu after download
   };
 
