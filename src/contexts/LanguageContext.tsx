@@ -84,6 +84,10 @@ const translations = {
     'certificates.python': 'Python Essentials 1',
     'certificates.hardware': 'Les bases du matériel informatique',
     'certificates.cybersecurity': 'Introduction à la cybersécurité',
+    'certificates.ethicalhacker': 'Ethical Hacker',
+    'certificates.cybermenaces': 'Gestion des Cybermenaces',
+    'certificates.networksecurity': 'Network Support and Security',
+    'certificates.englishit': 'English For IT',
     
     // CV Section
     'cv.title': 'Télécharger mon CV',
@@ -174,6 +178,10 @@ const translations = {
     'certificates.python': 'Python Essentials 1',
     'certificates.hardware': 'Computer Hardware Basics',
     'certificates.cybersecurity': 'Introduction to Cybersecurity',
+    'certificates.ethicalhacker': 'Ethical Hacker',
+    'certificates.cybermenaces': 'Cyber Threat Management',
+    'certificates.networksecurity': 'Network Support and Security',
+    'certificates.englishit': 'English For IT',
     
     // CV Section
     'cv.title': 'Download my CV',

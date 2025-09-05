@@ -26,6 +26,26 @@ export const Certificates = () => {
       issuer: 'Cisco',
       type: 'Security',
     },
+    {
+      title: 'certificates.ethicalhacker',
+      issuer: 'Cisco',
+      type: 'Security',
+    },
+    {
+      title: 'certificates.cybermenaces',
+      issuer: 'Cisco',
+      type: 'Security',
+    },
+    {
+      title: 'certificates.networksecurity',
+      issuer: 'Cisco',
+      type: 'Networking',
+    },
+    {
+      title: 'certificates.englishit',
+      issuer: 'Cisco',
+      type: 'Language',
+    },
   ];
 
   return (
