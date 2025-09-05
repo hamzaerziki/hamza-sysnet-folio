@@ -7,24 +7,9 @@ export const Certificates = () => {
 
   const certificates = [
     {
-      title: 'certificates.ccna',
+      title: 'certificates.networksecurity',
       issuer: 'Cisco',
       type: 'Networking',
-    },
-    {
-      title: 'certificates.python',
-      issuer: 'Cisco',
-      type: 'Programming',
-    },
-    {
-      title: 'certificates.hardware',
-      issuer: 'Cisco',
-      type: 'Hardware',
-    },
-    {
-      title: 'certificates.cybersecurity',
-      issuer: 'Cisco',
-      type: 'Security',
     },
     {
       title: 'certificates.ethicalhacker',
@@ -37,9 +22,24 @@ export const Certificates = () => {
       type: 'Security',
     },
     {
-      title: 'certificates.networksecurity',
+      title: 'certificates.ccna',
       issuer: 'Cisco',
       type: 'Networking',
+    },
+    {
+      title: 'certificates.cybersecurity',
+      issuer: 'Cisco',
+      type: 'Security',
+    },
+    {
+      title: 'certificates.python',
+      issuer: 'Cisco',
+      type: 'Programming',
+    },
+    {
+      title: 'certificates.hardware',
+      issuer: 'Cisco',
+      type: 'Hardware',
     },
     {
       title: 'certificates.englishit',
