@@ -31,7 +31,7 @@ export const Skills = () => {
     },
     {
       category: 'skills.virtualization',
-      skills: ['VMware', 'Proxmox', 'Hyper-V', 'VirtualBox'],
+      skills: ['VMware ESXi', 'Proxmox', 'Hyper-V', 'Docker'],
     },
     {
       category: 'skills.firewalls',
@@ -40,10 +40,6 @@ export const Skills = () => {
     {
       category: 'skills.devops',
       skills: ['Docker', 'Git', 'CI/CD', 'Ansible'],
-    },
-    {
-      category: 'skills.monitoring',
-      skills: ['Zabbix', 'Grafana', 'Prometheus'],
     },
     {
       category: 'skills.networks',
