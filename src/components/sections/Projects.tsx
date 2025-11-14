@@ -31,12 +31,6 @@ export const Projects = () => {
       featured: false,
     },
     {
-      title: 'projects.monitoring',
-      description: 'projects.monitoring.desc',
-      technologies: ['Zabbix', 'Prometheus', 'Grafana', 'Monitoring'],
-      featured: false,
-    },
-    {
       title: 'projects.misp',
       description: 'projects.misp.desc',
       technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
