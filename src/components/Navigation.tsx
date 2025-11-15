@@ -38,12 +38,12 @@ export const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-smooth ${
-      isScrolled ? 'glass shadow-glass border-b border-primary/20' : 'bg-transparent'
+      isScrolled ? 'bg-background/95 backdrop-blur-xl shadow-card border-b border-border/20' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div 
-            className="text-xl font-bold bg-gradient-cyber bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="text-xl font-bold gradient-primary bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform duration-300"
             onClick={() => scrollToSection('hero')}
           >
             Hamza Erziki
@@ -60,10 +60,10 @@ export const Navigation = () => {
               <button
                 key={key}
                 onClick={() => scrollToSection(id)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary-glow transition-all duration-300 relative group"
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 relative group"
               >
                 {t(`nav.${key}`)}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary shadow-glow transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
             
@@ -72,7 +72,7 @@ export const Navigation = () => {
               variant="default" 
               size="sm"
               onClick={handleDownloadCV}
-              className="gradient-cyber text-white hover:shadow-glow font-medium shadow-purple"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-lg"
             >
               {t('cv.download')}
             </Button>
