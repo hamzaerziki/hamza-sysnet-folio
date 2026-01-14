@@ -53,6 +53,9 @@ const translations = {
     
     // Projects Section
     'projects.title': 'Projets réalisés',
+    'projects.featured': 'En vedette',
+    'projects.infrastructure': 'Infrastructure réseau sécurisée',
+    'projects.infrastructure.desc': 'Architecture d\'une infrastructure réseau sécurisée orientée supervision et détection (VLAN, DNS/DHCP, FortiGate/PfSense, Zabbix, Prometheus, Grafana)',
     'projects.sdwan': 'Simulation SD-WAN avec FortiGate',
     'projects.sdwan.desc': 'Mise en place d\'une architecture SD-WAN complète avec routage intelligent et politiques de sécurité',
     'projects.firewall': 'Simulation de pare-feux',
@@ -88,6 +91,8 @@ const translations = {
     'certificates.cybermenaces': 'Gestion des Cybermenaces',
     'certificates.networksecurity': 'Network Support and Security',
     'certificates.englishit': 'English For IT',
+    'certificates.fortinet': 'Fortinet Certified Associate in Cybersecurity',
+    'certificates.ctf': 'Attestation de Réussite : Compétition CTF & Sécurité Offensive',
     
     // CV Section
     'cv.title': 'Télécharger mon CV',
@@ -147,6 +152,9 @@ const translations = {
     
     // Projects Section
     'projects.title': 'Completed projects',
+    'projects.featured': 'Featured',
+    'projects.infrastructure': 'Secure Network Infrastructure',
+    'projects.infrastructure.desc': 'Architecture of a secure network infrastructure focused on supervision and detection (VLAN, DNS/DHCP, FortiGate/PfSense, Zabbix, Prometheus, Grafana)',
     'projects.sdwan': 'SD-WAN Simulation with FortiGate',
     'projects.sdwan.desc': 'Implementation of complete SD-WAN architecture with intelligent routing and security policies',
     'projects.firewall': 'Firewall Simulation',
@@ -182,6 +190,8 @@ const translations = {
     'certificates.cybermenaces': 'Cyber Threat Management',
     'certificates.networksecurity': 'Network Support and Security',
     'certificates.englishit': 'English For IT',
+    'certificates.fortinet': 'Fortinet Certified Associate in Cybersecurity',
+    'certificates.ctf': 'CTF Competition & Offensive Security Achievement',
     
     // CV Section
     'cv.title': 'Download my CV',

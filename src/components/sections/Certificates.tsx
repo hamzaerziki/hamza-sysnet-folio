@@ -7,6 +7,16 @@ export const Certificates = () => {
 
   const certificates = [
     {
+      title: 'certificates.fortinet',
+      issuer: 'Fortinet',
+      type: 'Security',
+    },
+    {
+      title: 'certificates.ctf',
+      issuer: 'ISTA Hay Nahda — Rabat',
+      type: 'Security',
+    },
+    {
       title: 'certificates.networksecurity',
       issuer: 'Cisco',
       type: 'Networking',
