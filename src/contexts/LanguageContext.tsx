@@ -84,6 +84,8 @@ const translations = {
     // Certificates Section
     'certificates.title': 'Certificats professionnels',
     'certificates.ccna': 'CCNA Introduction aux réseaux',
+    'certificates.ccnasrw': 'CCNA : Switching, Routing, and Wireless',
+    'certificates.ccnaensa': 'CCNA : Enterprise Networking, Security, Automation',
     'certificates.python': 'Python Essentials 1',
     'certificates.hardware': 'Les bases du matériel informatique',
     'certificates.cybersecurity': 'Introduction à la cybersécurité',
@@ -183,6 +185,8 @@ const translations = {
     // Certificates Section
     'certificates.title': 'Professional certificates',
     'certificates.ccna': 'CCNA Introduction to Networks',
+    'certificates.ccnasrw': 'CCNA: Switching, Routing, and Wireless',
+    'certificates.ccnaensa': 'CCNA: Enterprise Networking, Security, Automation',
     'certificates.python': 'Python Essentials 1',
     'certificates.hardware': 'Computer Hardware Basics',
     'certificates.cybersecurity': 'Introduction to Cybersecurity',

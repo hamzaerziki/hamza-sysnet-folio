@@ -37,6 +37,16 @@ export const Certificates = () => {
       type: 'Networking',
     },
     {
+      title: 'certificates.ccnasrw',
+      issuer: 'Cisco',
+      type: 'Networking',
+    },
+    {
+      title: 'certificates.ccnaensa',
+      issuer: 'Cisco',
+      type: 'Networking',
+    },
+    {
       title: 'certificates.cybersecurity',
       issuer: 'Cisco',
       type: 'Security',
