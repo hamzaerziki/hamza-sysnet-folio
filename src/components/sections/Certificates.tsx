@@ -35,7 +35,7 @@ export const Certificates = () => {
     },
     {
       title: 'certificates.ctf',
-      issuer: 'ISTA',
+      issuer: 'Competition',
       type: 'Security',
       icon: Shield,
     },
