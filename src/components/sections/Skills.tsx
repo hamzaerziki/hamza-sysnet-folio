@@ -38,6 +38,10 @@ export const Skills = () => {
       skills: ['FortiGate', 'pfSense', 'BIG-IP', 'Sophos'],
     },
     {
+      category: 'skills.monitoring',
+      skills: ['Zabbix', 'Prometheus', 'Grafana', 'SNMP'],
+    },
+    {
       category: 'skills.devops',
       skills: ['Docker', 'Git', 'CI/CD', 'Ansible'],
     },
