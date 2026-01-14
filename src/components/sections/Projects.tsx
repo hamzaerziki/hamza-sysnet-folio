@@ -7,6 +7,12 @@ export const Projects = () => {
 
   const projects = [
     {
+      title: 'projects.infrastructure',
+      description: 'projects.infrastructure.desc',
+      technologies: ['VLAN', 'DNS/DHCP', 'FortiGate', 'PfSense', 'Zabbix', 'Prometheus', 'Grafana'],
+      featured: true,
+    },
+    {
       title: 'projects.sdwan',
       description: 'projects.sdwan.desc',
       technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
@@ -57,7 +63,7 @@ export const Projects = () => {
                 <div className="space-y-4">
                   {project.featured && (
                     <Badge className="gradient-primary text-white text-xs">
-                      ⭐ Featured
+                      ⭐ {t('projects.featured')}
                     </Badge>
                   )}
                   
