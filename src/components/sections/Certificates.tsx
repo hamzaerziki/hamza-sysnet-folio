@@ -182,7 +182,7 @@ export const Certificates = () => {
                     
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-sm font-semibold leading-tight mb-1 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                      <h3 className="text-sm font-semibold leading-tight mb-1 group-hover:text-primary transition-colors duration-300">
                         {t(cert.title)}
                       </h3>
                       <div className="flex items-center gap-2 flex-wrap">
