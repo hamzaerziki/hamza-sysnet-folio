@@ -9,7 +9,7 @@ export const Projects = () => {
     {
       title: 'projects.infrastructure',
       description: 'projects.infrastructure.desc',
-      technologies: ['VLAN', 'DNS/DHCP', 'FortiGate', 'PfSense', 'Zabbix', 'Prometheus', 'Grafana'],
+      technologies: ['Zabbix', 'Prometheus', 'Grafana'],
       featured: true,
     },
     {

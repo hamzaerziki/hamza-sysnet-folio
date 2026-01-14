@@ -54,8 +54,8 @@ const translations = {
     // Projects Section
     'projects.title': 'Projets réalisés',
     'projects.featured': 'En vedette',
-    'projects.infrastructure': 'Infrastructure réseau sécurisée',
-    'projects.infrastructure.desc': 'Architecture d\'une infrastructure réseau sécurisée orientée supervision et détection (VLAN, DNS/DHCP, FortiGate/PfSense, Zabbix, Prometheus, Grafana)',
+    'projects.infrastructure': 'Architecture d\'une infrastructure réseau sécurisée orientée supervision et détection',
+    'projects.infrastructure.desc': 'Mise en place d\'une infrastructure réseau sécurisée avec outils de supervision et détection (Zabbix, Prometheus, Grafana)',
     'projects.sdwan': 'Simulation SD-WAN avec FortiGate',
     'projects.sdwan.desc': 'Mise en place d\'une architecture SD-WAN complète avec routage intelligent et politiques de sécurité',
     'projects.firewall': 'Simulation de pare-feux',
@@ -155,8 +155,8 @@ const translations = {
     // Projects Section
     'projects.title': 'Completed projects',
     'projects.featured': 'Featured',
-    'projects.infrastructure': 'Secure Network Infrastructure',
-    'projects.infrastructure.desc': 'Architecture of a secure network infrastructure focused on supervision and detection (VLAN, DNS/DHCP, FortiGate/PfSense, Zabbix, Prometheus, Grafana)',
+    'projects.infrastructure': 'Secure Network Infrastructure Architecture for Supervision and Detection',
+    'projects.infrastructure.desc': 'Implementation of a secure network infrastructure with supervision and detection tools (Zabbix, Prometheus, Grafana)',
     'projects.sdwan': 'SD-WAN Simulation with FortiGate',
     'projects.sdwan.desc': 'Implementation of complete SD-WAN architecture with intelligent routing and security policies',
     'projects.firewall': 'Firewall Simulation',
