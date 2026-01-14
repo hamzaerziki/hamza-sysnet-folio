@@ -114,6 +114,11 @@ const translations = {
     // Certificates
     'certificates.certified': 'Certifications',
     'certificates.all': 'Tous',
+    'certificates.type.security': 'Sécurité',
+    'certificates.type.networking': 'Réseaux',
+    'certificates.type.programming': 'Programmation',
+    'certificates.type.hardware': 'Matériel',
+    'certificates.type.language': 'Langue',
   },
   en: {
     // Navigation
@@ -216,6 +221,11 @@ const translations = {
     // Certificates
     'certificates.certified': 'Certifications',
     'certificates.all': 'All',
+    'certificates.type.security': 'Security',
+    'certificates.type.networking': 'Networking',
+    'certificates.type.programming': 'Programming',
+    'certificates.type.hardware': 'Hardware',
+    'certificates.type.language': 'Language',
   }
 };
 
