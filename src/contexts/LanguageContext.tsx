@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+// Add "all" translation for certificates filter
+
 export type Language = 'fr' | 'en';
 
 interface LanguageContextType {
@@ -110,7 +112,8 @@ const translations = {
     'contact.linkedin': 'LinkedIn',
     
     // Certificates
-    'certificates.certified': 'Certifié',
+    'certificates.certified': 'Certifications',
+    'certificates.all': 'Tous',
   },
   en: {
     // Navigation
@@ -211,7 +214,8 @@ const translations = {
     'contact.linkedin': 'LinkedIn',
     
     // Certificates
-    'certificates.certified': 'Certified',
+    'certificates.certified': 'Certifications',
+    'certificates.all': 'All',
   }
 };
 
