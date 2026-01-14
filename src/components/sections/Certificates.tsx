@@ -30,73 +30,73 @@ export const Certificates = () => {
     {
       title: 'certificates.fortinet',
       issuer: 'Fortinet',
-      type: 'Security',
+      type: 'certificates.type.security',
       icon: Shield,
     },
     {
       title: 'certificates.ctf',
       issuer: 'Competition',
-      type: 'Security',
+      type: 'certificates.type.security',
       icon: Shield,
     },
     {
       title: 'certificates.networksecurity',
       issuer: 'Cisco',
-      type: 'Networking',
+      type: 'certificates.type.networking',
       icon: Network,
     },
     {
       title: 'certificates.ethicalhacker',
       issuer: 'Cisco',
-      type: 'Security',
+      type: 'certificates.type.security',
       icon: Shield,
     },
     {
       title: 'certificates.cybermenaces',
       issuer: 'Cisco',
-      type: 'Security',
+      type: 'certificates.type.security',
       icon: Shield,
     },
     {
       title: 'certificates.ccna',
       issuer: 'Cisco',
-      type: 'Networking',
+      type: 'certificates.type.networking',
       icon: Network,
     },
     {
       title: 'certificates.ccnasrw',
       issuer: 'Cisco',
-      type: 'Networking',
+      type: 'certificates.type.networking',
       icon: Network,
     },
     {
       title: 'certificates.ccnaensa',
       issuer: 'Cisco',
-      type: 'Networking',
+      type: 'certificates.type.networking',
       icon: Network,
     },
     {
       title: 'certificates.cybersecurity',
       issuer: 'Cisco',
-      type: 'Security',
+      type: 'certificates.type.security',
       icon: Shield,
     },
     {
       title: 'certificates.python',
       issuer: 'Cisco',
-      type: 'Programming',
+      type: 'certificates.type.programming',
       icon: Code,
     },
     {
       title: 'certificates.hardware',
       issuer: 'Cisco',
-      type: 'Hardware',
+      type: 'certificates.type.hardware',
       icon: Cpu,
     },
     {
       title: 'certificates.englishit',
       issuer: 'Cisco',
-      type: 'Language',
+      type: 'certificates.type.language',
       icon: Languages,
     },
   ];
@@ -109,11 +109,11 @@ export const Certificates = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Security': return 'bg-red-500/10 text-red-400 border-red-500/20';
-      case 'Networking': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
-      case 'Programming': return 'bg-green-500/10 text-green-400 border-green-500/20';
-      case 'Hardware': return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
-      case 'Language': return 'bg-purple-500/10 text-purple-400 border-purple-500/20';
+      case 'certificates.type.security': return 'bg-red-500/10 text-red-400 border-red-500/20';
+      case 'certificates.type.networking': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+      case 'certificates.type.programming': return 'bg-green-500/10 text-green-400 border-green-500/20';
+      case 'certificates.type.hardware': return 'bg-orange-500/10 text-orange-400 border-orange-500/20';
+      case 'certificates.type.language': return 'bg-purple-500/10 text-purple-400 border-purple-500/20';
       default: return 'bg-primary/10 text-primary border-primary/20';
     }
   };
@@ -188,7 +188,7 @@ export const Certificates = () => {
                       <div className="flex items-center gap-2 flex-wrap">
                         <span className="text-xs text-muted-foreground">{cert.issuer}</span>
                         <Badge variant="outline" className={`text-[10px] px-2 py-0 ${getTypeColor(cert.type)}`}>
-                          {cert.type}
+                          {t(cert.type)}
                         </Badge>
                       </div>
                     </div>
