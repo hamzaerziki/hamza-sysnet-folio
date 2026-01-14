@@ -27,15 +27,15 @@ export const Skills = () => {
   const skillCategories = [
     {
       category: 'skills.systems',
-      skills: ['Ubuntu', 'Kali', 'Windows Server', 'Active Directory'],
+      skills: ['Ubuntu', 'RedHat', 'Windows Server', 'Active Directory'],
     },
     {
       category: 'skills.virtualization',
-      skills: ['VMware ESXi', 'Proxmox', 'Hyper-V', 'Docker'],
+      skills: ['VMware ESXi', 'Docker', 'Proxmox', 'Hyper-V'],
     },
     {
       category: 'skills.firewalls',
-      skills: ['FortiGate', 'pfSense', 'BIG-IP', 'Sophos'],
+      skills: ['FortiGate', 'pfSense', 'BIG-IP'],
     },
     {
       category: 'skills.monitoring',
@@ -43,7 +43,7 @@ export const Skills = () => {
     },
     {
       category: 'skills.devops',
-      skills: ['Docker', 'Git', 'CI/CD', 'Ansible'],
+      skills: ['Git', 'CI/CD', 'Ansible'],
     },
     {
       category: 'skills.networks',
