@@ -47,7 +47,7 @@ export const Skills = () => {
     },
     {
       category: 'skills.networks',
-      skills: ['VLAN', 'TCP/IP', 'NAT', 'OSPF', 'BGP'],
+      skills: ['SDN', 'TCP/IP', 'NAT', 'OSPF', 'BGP'],
     },
     {
       category: 'skills.languages',
