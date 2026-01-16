@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
-            © Hamza Erziki – 2025-2026. {t('footer.rights')}
+            © Hamza Erziki – 2026-2027. {t('footer.rights')}
           </p>
         </div>
       </div>
