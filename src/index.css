@@ -9,44 +9,44 @@
 @layer base {
   :root {
     /* Dark Background System */
-    --background: 222 24% 8%;
-    --foreground: 210 40% 98%;
+    --background: 220 15% 6%;
+    --foreground: 45 10% 95%;
 
     /* Card System */
-    --card: 222 20% 12%;
-    --card-foreground: 210 40% 95%;
+    --card: 220 12% 10%;
+    --card-foreground: 45 10% 92%;
 
-    /* Primary Purple Theme */
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 262 100% 75%;
+    /* Primary Amber/Gold Theme */
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 15% 6%;
+    --primary-glow: 45 100% 65%;
 
-    /* Secondary Blue Theme */
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary Warm Orange */
+    --secondary: 25 95% 53%;
+    --secondary-foreground: 220 15% 6%;
 
     /* Muted Grays */
-    --muted: 222 16% 16%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 10% 14%;
+    --muted-foreground: 220 10% 55%;
 
     /* Accent Colors */
-    --accent: 222 16% 18%;
-    --accent-foreground: 210 40% 90%;
+    --accent: 220 10% 16%;
+    --accent-foreground: 45 10% 88%;
 
     /* Borders & Inputs */
-    --border: 222 16% 20%;
-    --input: 222 16% 16%;
-    --ring: 262 83% 58%;
+    --border: 220 10% 18%;
+    --input: 220 10% 14%;
+    --ring: 38 92% 50%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(217, 91%, 60%));
-    --gradient-subtle: linear-gradient(180deg, hsl(222, 24%, 8%), hsl(222, 20%, 12%));
-    --gradient-card: linear-gradient(145deg, hsl(222, 20%, 12%), hsl(222, 16%, 16%));
+    --gradient-primary: linear-gradient(135deg, hsl(38, 92%, 50%), hsl(25, 95%, 53%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220, 15%, 6%), hsl(220, 12%, 10%));
+    --gradient-card: linear-gradient(145deg, hsl(220, 12%, 10%), hsl(220, 10%, 14%));
 
     /* Shadows */
-    --shadow-purple: 0 10px 40px -10px hsl(262, 83%, 58%, 0.3);
-    --shadow-glow: 0 0 60px hsl(262, 100%, 75%, 0.15);
-    --shadow-card: 0 4px 20px hsl(222, 24%, 4%, 0.3);
+    --shadow-purple: 0 10px 40px -10px hsl(38, 92%, 50%, 0.3);
+    --shadow-glow: 0 0 60px hsl(45, 100%, 65%, 0.15);
+    --shadow-card: 0 4px 20px hsl(220, 15%, 4%, 0.4);
 
     /* Animation */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
