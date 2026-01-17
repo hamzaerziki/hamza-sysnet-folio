@@ -1,9 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const Projects = () => {
   const { t } = useLanguage();
+  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>();
 
   const projects = [
     {
@@ -45,10 +47,12 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20">
+    <section ref={sectionRef} id="projects" className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className={`text-3xl md:text-4xl font-bold text-center mb-16 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
             {t('projects.title')}
           </h2>
           
@@ -56,9 +60,10 @@ export const Projects = () => {
             {projects.map((project, index) => (
               <Card 
                 key={index} 
-                className={`p-6 gradient-card shadow-card border-border/50 hover:shadow-purple transition-smooth cursor-pointer group ${
+                className={`p-6 gradient-card shadow-card border-border/50 hover:shadow-purple transition-all duration-500 cursor-pointer group ${
                   project.featured ? 'ring-1 ring-primary/20' : ''
-                }`}
+                } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="space-y-4">
                   {project.featured && (
