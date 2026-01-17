@@ -1,31 +1,13 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import { useEffect, useState } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const About = () => {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    const element = document.getElementById('about');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>();
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-background"></div>
       <div className="absolute top-20 left-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
@@ -78,7 +60,7 @@ export const About = () => {
                   <div className="relative">
                     <div className="w-24 h-24 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden shadow-purple group-hover:shadow-glow transition-all duration-500 ring-4 ring-primary/20 group-hover:ring-primary/40">
                       <img 
-                        src="/lovable-uploads/3a053b59-f543-4bf9-92fd-f7bc07986f53.png" 
+                        src="/lovable-uploads/hamza-profile.jpeg" 
                         alt="Hamza Erziki"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />

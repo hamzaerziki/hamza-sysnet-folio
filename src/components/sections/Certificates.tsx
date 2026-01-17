@@ -1,30 +1,13 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Badge } from '@/components/ui/badge';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Award, Shield, Network, Code, Cpu, Languages } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const Certificates = () => {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
+  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>();
   const [activeIssuer, setActiveIssuer] = useState('all');
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('certificates');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const certificates = [
     {
@@ -119,7 +102,7 @@ export const Certificates = () => {
   };
 
   return (
-    <section id="certificates" className="py-16 md:py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="certificates" className="py-16 md:py-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-glow-pulse"></div>
       <div className="absolute bottom-20 left-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '1.5s' }}></div>

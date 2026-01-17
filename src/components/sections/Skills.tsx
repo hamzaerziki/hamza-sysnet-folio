@@ -1,28 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import { useState, useEffect } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const Skills = () => {
   const { t } = useLanguage();
-  const [isVisible, setIsVisible] = useState(false);
+  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('skills');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const skillCategories = [
     {
@@ -56,7 +39,7 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 md:py-20 bg-muted/30 relative overflow-hidden">
+    <section ref={sectionRef} id="skills" className="py-16 md:py-20 bg-muted/30 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-glow-pulse"></div>
       <div className="absolute bottom-10 right-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl animate-glow-pulse" style={{ animationDelay: '1s' }}></div>
