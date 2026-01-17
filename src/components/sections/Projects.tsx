@@ -81,7 +81,7 @@ export const Projects = () => {
                       <Badge 
                         key={techIndex} 
                         variant="secondary" 
-                        className="text-xs bg-muted hover:bg-accent"
+                        className="text-xs bg-muted text-foreground hover:bg-accent"
                       >
                         {tech}
                       </Badge>
