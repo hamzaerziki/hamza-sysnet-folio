@@ -42,11 +42,23 @@ export const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div 
-            className="text-xl font-bold gradient-primary bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform duration-300"
-            onClick={() => scrollToSection('hero')}
-          >
-            Hamza Erziki
+          <div className="flex items-center gap-3">
+            <div 
+              className="text-xl font-bold gradient-primary bg-clip-text text-transparent cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => scrollToSection('hero')}
+            >
+              Hamza Erziki
+            </div>
+            
+            {/* CV Download Button - Mobile (between name and hamburger) */}
+            <Button 
+              variant="default" 
+              size="sm"
+              onClick={handleDownloadCV}
+              className="md:hidden bg-primary text-primary-foreground hover:bg-primary/90 font-medium shadow-lg text-xs px-3 py-1"
+            >
+              CV
+            </Button>
           </div>
           
           {/* Desktop Navigation */}
