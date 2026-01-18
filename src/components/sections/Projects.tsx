@@ -15,9 +15,27 @@ export const Projects = () => {
       featured: true,
     },
     {
+      title: 'projects.nas',
+      description: 'projects.nas.desc',
+      technologies: ['OpenMediaVault', 'Storage', 'Networks', 'Hardware'],
+      featured: true,
+    },
+    {
+      title: 'projects.ista',
+      description: 'projects.ista.desc',
+      technologies: ['Clonezilla', 'SSD', 'Câblage réseau', 'Déploiement'],
+      featured: true,
+    },
+    {
       title: 'projects.sdwan',
       description: 'projects.sdwan.desc',
       technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
+      featured: true,
+    },
+    {
+      title: 'projects.misp',
+      description: 'projects.misp.desc',
+      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
       featured: true,
     },
     {
@@ -27,22 +45,10 @@ export const Projects = () => {
       featured: false,
     },
     {
-      title: 'projects.nas',
-      description: 'projects.nas.desc',
-      technologies: ['OpenMediaVault', 'Storage', 'Networks', 'Hardware'],
-      featured: true,
-    },
-    {
       title: 'projects.network',
       description: 'projects.network.desc',
       technologies: ['Cisco', 'VLAN', 'DHCP', 'Routing'],
       featured: false,
-    },
-    {
-      title: 'projects.misp',
-      description: 'projects.misp.desc',
-      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
-      featured: true,
     },
   ];
 
