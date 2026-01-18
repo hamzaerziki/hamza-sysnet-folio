@@ -62,7 +62,7 @@ export const About = () => {
                       <img 
                         src="/lovable-uploads/hamza-profile.jpeg" 
                         alt="Hamza Erziki"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
                     <div className="absolute -top-2 -right-2 w-6 h-6 md:w-8 md:h-8 bg-gradient-primary rounded-full flex items-center justify-center animate-bounce shadow-lg">
