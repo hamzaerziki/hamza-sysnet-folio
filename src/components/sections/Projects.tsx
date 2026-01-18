@@ -21,15 +21,15 @@ export const Projects = () => {
       featured: true,
     },
     {
-      title: 'projects.ista',
-      description: 'projects.ista.desc',
-      technologies: ['Clonezilla', 'SSD', 'Câblage réseau', 'Déploiement'],
-      featured: true,
-    },
-    {
       title: 'projects.sdwan',
       description: 'projects.sdwan.desc',
       technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
+      featured: true,
+    },
+    {
+      title: 'projects.ista',
+      description: 'projects.ista.desc',
+      technologies: ['Clonezilla', 'SSD', 'Câblage réseau', 'Déploiement'],
       featured: true,
     },
     {
