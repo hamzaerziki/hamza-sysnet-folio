@@ -21,9 +21,9 @@ export const Projects = () => {
       featured: true,
     },
     {
-      title: 'projects.sdwan',
-      description: 'projects.sdwan.desc',
-      technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
+      title: 'projects.misp',
+      description: 'projects.misp.desc',
+      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
       featured: true,
     },
     {
@@ -33,9 +33,9 @@ export const Projects = () => {
       featured: true,
     },
     {
-      title: 'projects.misp',
-      description: 'projects.misp.desc',
-      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
+      title: 'projects.sdwan',
+      description: 'projects.sdwan.desc',
+      technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
       featured: true,
     },
     {
