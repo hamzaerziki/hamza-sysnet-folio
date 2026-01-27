@@ -26,7 +26,7 @@ export const Skills = () => {
     },
     {
       category: 'skills.devops',
-      skills: ['Git', 'CI/CD', 'Ansible'],
+      skills: ['Git', 'Ansible'],
     },
     {
       category: 'skills.networks',
