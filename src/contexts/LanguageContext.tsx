@@ -24,7 +24,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Étudiant en systèmes et réseaux informatiques',
-    'hero.subtitle': 'HEY, MOI C\'EST HAMZA ERZIKI',
+    'hero.subtitle': 'HEY, C\'EST MOI HAMZA ERZIKI',
     'hero.description': 'Passionné par les systèmes, les réseaux et l\'art de résoudre de vrais défis informatiques.',
     'hero.cta.projects': 'Voir mes projets',
     'hero.cta.about': 'En savoir plus',
