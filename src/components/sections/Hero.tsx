@@ -1,12 +1,9 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { useMouseParallax } from '@/hooks/useMouseParallax';
 import { useIsMobile } from '@/hooks/use-mobile';
-
-const ParticleField = lazy(() =>
-  import('@/components/3d/ParticleField').then((m) => ({ default: m.ParticleField }))
-);
+import { ParticleField } from '@/components/3d/ParticleField';
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -40,23 +37,19 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* 3D Particles - only on desktop */}
-      {!isMobile && (
-        <Suspense fallback={null}>
-          <ParticleField />
-        </Suspense>
-      )}
-
-      {/* Fallback background effects for mobile */}
-      <div className="absolute inset-0 bg-gradient-subtle"></div>
+      {/* Background gradient - behind everything */}
+      <div className="absolute inset-0 bg-gradient-subtle z-0"></div>
       <div
-        className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+        className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl z-0"
         style={!isMobile ? { transform: `translate(${mouse.x}px, ${mouse.y}px)` } : undefined}
       />
       <div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl z-0"
         style={!isMobile ? { transform: `translate(${-mouse.x * 0.7}px, ${-mouse.y * 0.7}px)` } : undefined}
       />
+
+      {/* Particle network - on top of background */}
+      <ParticleField />
 
       <div className="container mx-auto px-4 relative z-10">
         <div
@@ -76,10 +69,10 @@ export const Hero = () => {
           {/* Typewriter Effect */}
           <div className="mb-8">
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 px-4 sm:px-0">
-              <span className="inline-block min-h-[1.2em]">
+              <span className="inline-block min-h-[1.2em] bg-gradient-to-r from-foreground via-primary to-secondary bg-clip-text text-transparent">
                 {displayText}
-                <span className="animate-pulse text-primary">|</span>
               </span>
+              <span className="animate-pulse text-primary">|</span>
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4 leading-relaxed">
               {t('hero.description')}

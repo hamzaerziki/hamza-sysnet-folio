@@ -1,194 +1,180 @@
-import { useRef, useMemo, useCallback } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import * as THREE from 'three';
+import { useRef, useEffect, useCallback } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
-const PARTICLE_COUNT = 200;
-
-const Particles = () => {
-  const mesh = useRef<THREE.Points>(null);
-  const mouse = useRef({ x: 0, y: 0 });
-  const { viewport } = useThree();
-
-  const [positions, velocities, colors] = useMemo(() => {
-    const pos = new Float32Array(PARTICLE_COUNT * 3);
-    const vel = new Float32Array(PARTICLE_COUNT * 3);
-    const col = new Float32Array(PARTICLE_COUNT * 3);
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const i3 = i * 3;
-      pos[i3] = (Math.random() - 0.5) * 10;
-      pos[i3 + 1] = (Math.random() - 0.5) * 10;
-      pos[i3 + 2] = (Math.random() - 0.5) * 6;
-
-      vel[i3] = (Math.random() - 0.5) * 0.002;
-      vel[i3 + 1] = (Math.random() - 0.5) * 0.002;
-      vel[i3 + 2] = (Math.random() - 0.5) * 0.001;
-
-      // Cyan/teal colors matching the theme
-      const isCyan = Math.random() > 0.3;
-      if (isCyan) {
-        col[i3] = 0.1 + Math.random() * 0.2;     // R
-        col[i3 + 1] = 0.7 + Math.random() * 0.3;  // G
-        col[i3 + 2] = 0.8 + Math.random() * 0.2;  // B
-      } else {
-        col[i3] = 0.2 + Math.random() * 0.2;
-        col[i3 + 1] = 0.5 + Math.random() * 0.3;
-        col[i3 + 2] = 0.9 + Math.random() * 0.1;
-      }
-    }
-    return [pos, vel, col];
-  }, []);
-
-  const handlePointerMove = useCallback((e: THREE.Event) => {
-    const event = e as unknown as { point: THREE.Vector3 };
-    mouse.current.x = event.point.x;
-    mouse.current.y = event.point.y;
-  }, []);
-
-  useFrame((state) => {
-    if (!mesh.current) return;
-    const geometry = mesh.current.geometry;
-    const posAttr = geometry.attributes.position;
-    const posArray = posAttr.array as Float32Array;
-    const time = state.clock.elapsedTime;
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const i3 = i * 3;
-
-      // Base movement
-      posArray[i3] += velocities[i3] + Math.sin(time * 0.3 + i) * 0.001;
-      posArray[i3 + 1] += velocities[i3 + 1] + Math.cos(time * 0.2 + i) * 0.001;
-      posArray[i3 + 2] += velocities[i3 + 2];
-
-      // Mouse attraction (subtle)
-      const dx = mouse.current.x - posArray[i3];
-      const dy = mouse.current.y - posArray[i3 + 1];
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 3) {
-        posArray[i3] += dx * 0.003;
-        posArray[i3 + 1] += dy * 0.003;
-      }
-
-      // Boundaries
-      if (Math.abs(posArray[i3]) > 6) velocities[i3] *= -1;
-      if (Math.abs(posArray[i3 + 1]) > 5) velocities[i3 + 1] *= -1;
-      if (Math.abs(posArray[i3 + 2]) > 3) velocities[i3 + 2] *= -1;
-    }
-
-    posAttr.needsUpdate = true;
-    mesh.current.rotation.y = time * 0.02;
-  });
-
-  return (
-    <points ref={mesh} onPointerMove={handlePointerMove}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-          count={PARTICLE_COUNT}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[colors, 3]}
-          count={PARTICLE_COUNT}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.06}
-        vertexColors
-        transparent
-        opacity={0.8}
-        sizeAttenuation
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </points>
-  );
-};
-
-// Floating geometric shapes
-const FloatingShapes = () => {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame((state) => {
-    if (!groupRef.current) return;
-    const t = state.clock.elapsedTime;
-    groupRef.current.rotation.y = t * 0.05;
-    groupRef.current.rotation.x = Math.sin(t * 0.1) * 0.1;
-  });
-
-  const shapes = useMemo(() => {
-    return Array.from({ length: 6 }, (_, i) => ({
-      position: [
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 4,
-      ] as [number, number, number],
-      scale: 0.1 + Math.random() * 0.15,
-      speed: 0.3 + Math.random() * 0.5,
-      type: i % 3,
-    }));
-  }, []);
-
-  return (
-    <group ref={groupRef}>
-      {shapes.map((shape, i) => (
-        <FloatingShape key={i} {...shape} index={i} />
-      ))}
-    </group>
-  );
-};
-
-const FloatingShape = ({
-  position,
-  scale,
-  speed,
-  type,
-  index,
-}: {
-  position: [number, number, number];
-  scale: number;
-  speed: number;
-  type: number;
-  index: number;
-}) => {
-  const ref = useRef<THREE.Mesh>(null);
-
-  useFrame((state) => {
-    if (!ref.current) return;
-    const t = state.clock.elapsedTime;
-    ref.current.position.y = position[1] + Math.sin(t * speed + index) * 0.5;
-    ref.current.rotation.x = t * speed * 0.3;
-    ref.current.rotation.z = t * speed * 0.2;
-  });
-
-  return (
-    <mesh ref={ref} position={position} scale={scale}>
-      {type === 0 && <octahedronGeometry args={[1, 0]} />}
-      {type === 1 && <icosahedronGeometry args={[1, 0]} />}
-      {type === 2 && <tetrahedronGeometry args={[1, 0]} />}
-      <meshBasicMaterial
-        color={new THREE.Color().setHSL(0.51, 0.8, 0.5)}
-        wireframe
-        transparent
-        opacity={0.3}
-      />
-    </mesh>
-  );
-};
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  opacity: number;
+}
 
 export const ParticleField = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isMobile = useIsMobile();
+  const mouseRef = useRef({ x: -1000, y: -1000 });
+  const particlesRef = useRef<Particle[]>([]);
+  const animRef = useRef<number>(0);
+
+  const PARTICLE_COUNT = isMobile ? 40 : 100;
+  const CONNECTION_DIST = isMobile ? 120 : 150;
+  const MOUSE_RADIUS = 200;
+
+  const initParticles = useCallback((w: number, h: number) => {
+    const particles: Particle[] = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        size: 1.5 + Math.random() * 2.5,
+        opacity: 0.3 + Math.random() * 0.7,
+      });
+    }
+    particlesRef.current = particles;
+  }, [PARTICLE_COUNT]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let w = 0, h = 0;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio, 2);
+      w = canvas.parentElement?.clientWidth || window.innerWidth;
+      h = canvas.parentElement?.clientHeight || window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.scale(dpr, dpr);
+      if (particlesRef.current.length === 0) initParticles(w, h);
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    const onMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - rect.left;
+      mouseRef.current.y = e.clientY - rect.top;
+    };
+
+    const onMouseLeave = () => {
+      mouseRef.current.x = -1000;
+      mouseRef.current.y = -1000;
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    canvas.addEventListener('mouseleave', onMouseLeave);
+
+    const animate = () => {
+      ctx.clearRect(0, 0, w, h);
+      const particles = particlesRef.current;
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+
+      // Update & draw particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        // Mouse interaction
+        const dx = mx - p.x;
+        const dy = my - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MOUSE_RADIUS) {
+          const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+          p.vx += dx * force * 0.003;
+          p.vy += dy * force * 0.003;
+        }
+
+        // Damping
+        p.vx *= 0.99;
+        p.vy *= 0.99;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        if (p.y < -10) p.y = h + 10;
+        if (p.y > h + 10) p.y = -10;
+
+        // Draw particle with glow
+        const glowSize = dist < MOUSE_RADIUS ? p.size * (1 + (1 - dist / MOUSE_RADIUS) * 2) : p.size;
+        const glowOpacity = dist < MOUSE_RADIUS ? Math.min(1, p.opacity + (1 - dist / MOUSE_RADIUS) * 0.5) : p.opacity;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, glowSize + 3, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(185, 80%, 50%, ${glowOpacity * 0.15})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(185, 80%, 60%, ${glowOpacity})`;
+        ctx.fill();
+      }
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+
+          if (d < CONNECTION_DIST) {
+            const alpha = (1 - d / CONNECTION_DIST) * 0.35;
+
+            // Brighter if near mouse
+            const midX = (particles[i].x + particles[j].x) / 2;
+            const midY = (particles[i].y + particles[j].y) / 2;
+            const mouseDist = Math.sqrt((mx - midX) ** 2 + (my - midY) ** 2);
+            const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.4 : 0;
+
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `hsla(185, 75%, 55%, ${alpha + mouseBoost})`;
+            ctx.lineWidth = 0.8 + mouseBoost * 2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw mouse glow
+      if (mx > 0 && my > 0) {
+        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, MOUSE_RADIUS * 0.6);
+        gradient.addColorStop(0, 'hsla(185, 80%, 50%, 0.08)');
+        gradient.addColorStop(1, 'hsla(185, 80%, 50%, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, w, h);
+      }
+
+      animRef.current = requestAnimationFrame(animate);
+    };
+
+    animRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animRef.current);
+      window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', onMouseMove);
+      canvas.removeEventListener('mouseleave', onMouseLeave);
+    };
+  }, [initParticles, CONNECTION_DIST, MOUSE_RADIUS, isMobile]);
+
   return (
-    <div className="absolute inset-0 z-0">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 60 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: false, alpha: true }}
-        style={{ background: 'transparent' }}
-      >
-        <Particles />
-        <FloatingShapes />
-      </Canvas>
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 z-0"
+      style={{ pointerEvents: 'auto' }}
+    />
   );
 };
