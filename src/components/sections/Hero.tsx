@@ -1,12 +1,20 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
+import { useMouseParallax } from '@/hooks/useMouseParallax';
+import { useIsMobile } from '@/hooks/use-mobile';
+
+const ParticleField = lazy(() =>
+  import('@/components/3d/ParticleField').then((m) => ({ default: m.ParticleField }))
+);
 
 export const Hero = () => {
   const { t } = useLanguage();
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const fullText = t('hero.title');
+  const mouse = useMouseParallax(15);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -32,13 +40,29 @@ export const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Effects */}
+      {/* 3D Particles - only on desktop */}
+      {!isMobile && (
+        <Suspense fallback={null}>
+          <ParticleField />
+        </Suspense>
+      )}
+
+      {/* Fallback background effects for mobile */}
       <div className="absolute inset-0 bg-gradient-subtle"></div>
-      <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
-      
+      <div
+        className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+        style={!isMobile ? { transform: `translate(${mouse.x}px, ${mouse.y}px)` } : undefined}
+      />
+      <div
+        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"
+        style={!isMobile ? { transform: `translate(${-mouse.x * 0.7}px, ${-mouse.y * 0.7}px)` } : undefined}
+      />
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div
+          className="text-center max-w-4xl mx-auto"
+          style={!isMobile ? { transform: `translate(${mouse.x * 0.3}px, ${mouse.y * 0.3}px)` } : undefined}
+        >
           {/* Main Content */}
           <div className="mb-6 animate-fade-in">
             <p className="text-sm font-medium text-primary mb-2 tracking-wide uppercase animate-pulse">
