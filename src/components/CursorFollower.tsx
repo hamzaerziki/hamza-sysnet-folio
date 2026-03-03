@@ -36,12 +36,12 @@ export const CursorFollower = () => {
       <div
         className="fixed pointer-events-none z-[9999] rounded-full mix-blend-screen"
         style={{
-          width: 40,
-          height: 40,
-          left: pos.x - 20,
-          top: pos.y - 20,
-          background: 'radial-gradient(circle, hsl(185 80% 45% / 0.15) 0%, transparent 70%)',
-          transition: 'left 0.06s linear, top 0.06s linear',
+          width: 32,
+          height: 32,
+          left: pos.x - 16,
+          top: pos.y - 16,
+          background: 'radial-gradient(circle, hsl(185 80% 45% / 0.12) 0%, transparent 70%)',
+          transition: 'left 0.03s linear, top 0.03s linear',
           opacity: visible ? 1 : 0,
         }}
       />
