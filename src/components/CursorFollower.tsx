@@ -41,7 +41,7 @@ export const CursorFollower = () => {
           left: pos.x - 20,
           top: pos.y - 20,
           background: 'radial-gradient(circle, hsl(185 80% 45% / 0.15) 0%, transparent 70%)',
-          transition: 'left 0.15s ease-out, top 0.15s ease-out',
+          transition: 'left 0.06s linear, top 0.06s linear',
           opacity: visible ? 1 : 0,
         }}
       />
