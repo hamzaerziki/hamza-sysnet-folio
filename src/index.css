@@ -1,141 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Portfolio Design System - Dark Theme with Purple/Blue */
+/*
+ * Hamza Erziki — Portfolio
+ * Design System: neutral-first, single teal accent, dual-mode
+ * Display: Boska. Body: Satoshi. Mono: JetBrains Mono.
+ */
 
 @layer base {
   :root {
-    /* Dark Background System */
-    --background: 220 15% 6%;
-    --foreground: 45 10% 95%;
+    /* ============ LIGHT MODE ============ */
+    /* All HSL triplets — required by Tailwind hsl(var(--token)) */
+    --background: 40 18% 94%;          /* #f4f2ee */
+    --surface: 43 24% 96%;             /* #f7f6f2 */
+    --surface-2: 50 20% 98%;           /* #fafaf8 */
+    --surface-offset: 38 16% 92%;      /* #eeece7 */
 
-    /* Card System */
-    --card: 220 12% 10%;
-    --card-foreground: 45 10% 92%;
+    --foreground: 30 12% 9%;           /* #1a1814 */
+    --muted-foreground: 38 4% 41%;     /* #6b6964 */
+    --faint: 45 5% 68%;                /* #b0afa9 */
 
-    /* Primary Cyan/Teal Theme */
-    --primary: 185 80% 45%;
-    --primary-foreground: 220 15% 6%;
-    --primary-glow: 175 85% 55%;
+    --border: 30 12% 9% / 0.10;        /* using slash alpha */
+    --border-solid: 35 10% 86%;
+    --input: 35 10% 86%;
+    --ring: 184 98% 22%;
 
-    /* Secondary Blue */
-    --secondary: 200 75% 50%;
-    --secondary-foreground: 220 15% 6%;
+    --card: 43 24% 96%;
+    --card-foreground: 30 12% 9%;
 
-    /* Muted Grays */
-    --muted: 220 10% 14%;
-    --muted-foreground: 220 10% 55%;
+    --primary: 184 98% 22%;            /* #01696f */
+    --primary-foreground: 43 24% 96%;
+    --primary-hover: 187 75% 19%;      /* #0c4e54 */
+    --primary-highlight: 184 98% 22% / 0.08;
 
-    /* Accent Colors */
-    --accent: 220 10% 16%;
-    --accent-foreground: 185 20% 88%;
+    --secondary: 35 10% 86%;
+    --secondary-foreground: 30 12% 9%;
 
-    /* Borders & Inputs */
-    --border: 220 10% 18%;
-    --input: 220 10% 14%;
-    --ring: 185 80% 45%;
+    --muted: 38 16% 92%;
+    --accent: 184 98% 22% / 0.08;
+    --accent-foreground: 184 98% 22%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(185, 80%, 45%), hsl(200, 75%, 50%));
-    --gradient-subtle: linear-gradient(180deg, hsl(220, 15%, 6%), hsl(220, 12%, 10%));
-    --gradient-card: linear-gradient(145deg, hsl(220, 12%, 10%), hsl(220, 10%, 14%));
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --popover: 43 24% 96%;
+    --popover-foreground: 30 12% 9%;
 
-    /* Shadows */
-    --shadow-purple: 0 10px 40px -10px hsl(185, 80%, 45%, 0.3);
-    --shadow-glow: 0 0 60px hsl(175, 85%, 55%, 0.15);
-    --shadow-card: 0 4px 20px hsl(220, 15%, 4%, 0.4);
+    --radius: 0.625rem;
 
-    /* Animation */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Sidebar (kept for shadcn compatibility) */
+    --sidebar-background: 43 24% 96%;
+    --sidebar-foreground: 30 12% 9%;
+    --sidebar-primary: 184 98% 22%;
+    --sidebar-primary-foreground: 43 24% 96%;
+    --sidebar-accent: 38 16% 92%;
+    --sidebar-accent-foreground: 30 12% 9%;
+    --sidebar-border: 35 10% 86%;
+    --sidebar-ring: 184 98% 22%;
+  }
 
-    --radius: 0.75rem;
+  .dark {
+    /* ============ DARK MODE ============ */
+    --background: 60 4% 7%;            /* #111110 */
+    --surface: 30 8% 9%;               /* #171614 */
+    --surface-2: 40 6% 10%;            /* #1c1b19 */
+    --surface-offset: 40 5% 12%;       /* #201f1d */
 
-    --sidebar-background: 0 0% 98%;
+    --foreground: 40 7% 82%;           /* #d4d2ce */
+    --muted-foreground: 40 3% 47%;     /* #7a7874 */
+    --faint: 40 3% 32%;                /* #555350 */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --border: 40 14% 94% / 0.08;
+    --border-solid: 40 5% 18%;
+    --input: 40 5% 18%;
+    --ring: 188 33% 47%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --card: 30 8% 9%;
+    --card-foreground: 40 7% 82%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --primary: 188 33% 47%;            /* #4f98a3 */
+    --primary-foreground: 60 4% 7%;
+    --primary-hover: 189 60% 34%;      /* #227f8b */
+    --primary-highlight: 188 33% 47% / 0.10;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --secondary: 40 5% 18%;
+    --secondary-foreground: 40 7% 82%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --muted: 40 5% 12%;
+    --accent: 188 33% 47% / 0.10;
+    --accent-foreground: 188 33% 47%;
 
-    --sidebar-border: 220 13% 91%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --popover: 30 8% 9%;
+    --popover-foreground: 40 7% 82%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 30 8% 9%;
+    --sidebar-foreground: 40 7% 82%;
+    --sidebar-primary: 188 33% 47%;
+    --sidebar-primary-foreground: 60 4% 7%;
+    --sidebar-accent: 40 5% 12%;
+    --sidebar-accent-foreground: 40 7% 82%;
+    --sidebar-border: 40 5% 18%;
+    --sidebar-ring: 188 33% 47%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border-solid));
   }
 
-  body {
-    @apply bg-background text-foreground font-inter antialiased;
-    background: var(--gradient-subtle);
-    overflow-x: hidden;
-  }
-  
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
   }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.20);
+    color: hsl(var(--foreground));
+  }
+
+  /* Display font for big stuff only */
+  .font-display {
+    font-family: 'Boska', ui-serif, Georgia, serif;
+    font-feature-settings: 'ss01';
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* Hide native cursor when custom cursor is on (desktop) */
+  @media (hover: hover) and (pointer: fine) {
+    body.has-custom-cursor,
+    body.has-custom-cursor * {
+      cursor: none !important;
+    }
+  }
 }
 
 @layer components {
-  .gradient-primary {
-    background: var(--gradient-primary);
+  /* Reveal animation: opacity + clip-path only — never translateY */
+  .reveal {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transition:
+      opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+      clip-path 700ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
-  .gradient-card {
-    background: var(--gradient-card);
-  }
-  
-  .shadow-purple {
-    box-shadow: var(--shadow-purple);
-  }
-  
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-  
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-  
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  .reveal.is-visible {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
   }
 
-  .typewriter {
-    overflow: hidden;
-    border-right: 0.15em solid hsl(var(--primary));
-    white-space: nowrap;
-    animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  /* Word-by-word reveal */
+  .word-reveal {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0); /* respects rule: no scroll-translateY; this is initial mount only */
+    animation: word-in 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes word-in {
+    from { opacity: 0; clip-path: inset(0 0 100% 0); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
   }
 
-  @keyframes typewriter {
-    from { width: 0; }
-    to { width: 100%; }
+  /* Pill */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--primary) / 0.10);
+    color: hsl(var(--primary));
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: hsl(var(--primary)); }
+  /* Subtle dotted grid bg accent */
+  .grid-dots {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  .float-animation {
-    animation: float 6s ease-in-out infinite;
+  /* Floating label input */
+  .float-field {
+    position: relative;
+  }
+  .float-field input,
+  .float-field textarea {
+    width: 100%;
+    padding: 1.25rem 0.875rem 0.5rem;
+    background: transparent;
+    border: 1px solid hsl(var(--border-solid));
+    border-radius: var(--radius);
+    color: hsl(var(--foreground));
+    font: inherit;
+    transition: border-color 200ms ease;
+  }
+  .float-field textarea {
+    min-height: 7rem;
+    resize: vertical;
+  }
+  .float-field input:focus,
+  .float-field textarea:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+  }
+  .float-field label {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+    transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.9375rem;
+  }
+  .float-field input:focus + label,
+  .float-field input:not(:placeholder-shown) + label,
+  .float-field textarea:focus + label,
+  .float-field textarea:not(:placeholder-shown) + label {
+    top: 0.25rem;
+    font-size: 0.6875rem;
+    color: hsl(var(--primary));
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+  /* Stroke-draw for SVG logo */
+  @keyframes stroke-draw {
+    from { stroke-dashoffset: var(--draw-len, 200); }
+    to   { stroke-dashoffset: 0; }
+  }
+  .stroke-draw path,
+  .stroke-draw line,
+  .stroke-draw polyline {
+    stroke-dasharray: var(--draw-len, 200);
+    stroke-dashoffset: var(--draw-len, 200);
+    animation: stroke-draw 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
