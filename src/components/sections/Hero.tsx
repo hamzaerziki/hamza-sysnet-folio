@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Terminal } from '@/components/widgets/Terminal';
 import { ArrowDown } from 'lucide-react';
+import { ParticleField } from '@/components/3d/ParticleField';
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -31,6 +32,10 @@ export const Hero = () => {
     >
       {/* Subtle dotted texture */}
       <div className="absolute inset-0 grid-dots opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+      {/* Constellation — kept very subtle */}
+      <div className="absolute inset-0 pointer-events-none opacity-60">
+        <ParticleField />
+      </div>
 
       <div className="container mx-auto px-6 relative">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
