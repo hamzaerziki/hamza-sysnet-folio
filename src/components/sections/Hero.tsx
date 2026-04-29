@@ -1,126 +1,89 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
-import { useMouseParallax } from '@/hooks/useMouseParallax';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { Terminal } from '@/components/widgets/Terminal';
+import { ArrowDown } from 'lucide-react';
 import { ParticleField } from '@/components/3d/ParticleField';
 
 export const Hero = () => {
   const { t } = useLanguage();
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const fullText = t('hero.title');
-  const mouse = useMouseParallax(15);
-  const isMobile = useIsMobile();
+  const words = [
+    t('hero.headline.1'),
+    t('hero.headline.2'),
+    t('hero.headline.3'),
+    t('hero.headline.4'),
+    t('hero.headline.5'),
+  ].filter(Boolean);
 
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + fullText[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }, 50);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
+  const scrollTo = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-  useEffect(() => {
-    setDisplayText('');
-    setCurrentIndex(0);
-  }, [fullText]);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const downloadCV = () => {
+    const a = document.createElement('a');
+    a.href = '/Hamza_Erziki_CV.pdf';
+    a.download = 'Hamza_Erziki_CV.pdf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient - behind everything */}
-      <div className="absolute inset-0 bg-gradient-subtle z-0"></div>
-      <div
-        className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl z-0"
-        style={!isMobile ? { transform: `translate(${mouse.x}px, ${mouse.y}px)` } : undefined}
-      />
-      <div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl z-0"
-        style={!isMobile ? { transform: `translate(${-mouse.x * 0.7}px, ${-mouse.y * 0.7}px)` } : undefined}
-      />
+    <section
+      id="hero"
+      className="relative min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden"
+    >
+      {/* Subtle dotted texture */}
+      <div className="absolute inset-0 grid-dots opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+      {/* Constellation — kept very subtle */}
+      <div className="absolute inset-0 pointer-events-none opacity-60">
+        <ParticleField />
+      </div>
 
-      {/* Particle network - on top of background */}
-      <ParticleField />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div
-          className="text-center max-w-4xl mx-auto"
-          style={!isMobile ? { transform: `translate(${mouse.x * 0.3}px, ${mouse.y * 0.3}px)` } : undefined}
-        >
-          {/* Main Content */}
-          <div className="mb-6 animate-fade-in">
-            <p className="text-sm font-medium text-primary mb-2 tracking-wide uppercase animate-pulse">
-              {t('hero.availability')}
-            </p>
-            <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-muted-foreground mb-4">
-              {t('hero.subtitle')}
-            </h2>
-          </div>
-
-          {/* Typewriter Effect */}
-          <div className="mb-8">
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 px-4 sm:px-0">
-              <span className="inline-block min-h-[1.2em] bg-gradient-to-r from-foreground via-primary to-secondary bg-clip-text text-transparent">
-                {displayText}
-              </span>
-              <span className="animate-pulse text-primary">|</span>
+      <div className="container mx-auto px-6 relative">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Headline column */}
+          <div className="lg:col-span-7">
+            <div className="mb-6">
+              <span className="pill">{t('hero.pill')}</span>
+            </div>
+            <h1 className="font-display text-[clamp(2.25rem,6vw,4.75rem)] leading-[1.05] tracking-tight text-foreground">
+              {words.map((w, i) => (
+                <span
+                  key={i}
+                  className="word-reveal mr-[0.25em]"
+                  style={{ animationDelay: `${120 + i * 90}ms` }}
+                >
+                  {w}
+                </span>
+              ))}
             </h1>
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4 leading-relaxed">
-              {t('hero.description')}
+            <p className="mt-6 max-w-xl text-base text-muted-foreground leading-relaxed">
+              {t('hero.sub')}
             </p>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => scrollTo('projects')}
+                className="inline-flex items-center justify-center h-11 px-6 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover transition-colors text-sm font-medium"
+              >
+                {t('hero.cta.primary')}
+              </button>
+              <button
+                onClick={downloadCV}
+                className="inline-flex items-center justify-center h-11 px-6 rounded-md border border-border-solid hover:bg-surface-offset text-foreground transition-colors text-sm font-medium"
+              >
+                {t('hero.cta.secondary')}
+              </button>
+            </div>
           </div>
 
-          {/* Call to Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
-            <Button 
-              size="lg" 
-              className="gradient-primary text-white font-semibold shadow-purple hover:shadow-glow hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              onClick={() => scrollToSection('projects')}
-            >
-              {t('hero.cta.projects')}
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-border hover:bg-accent font-semibold hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-              onClick={() => scrollToSection('about')}
-            >
-              {t('hero.cta.about')}
-            </Button>
+          {/* Terminal column */}
+          <div className="lg:col-span-5">
+            <Terminal />
           </div>
+        </div>
 
-          {/* Contact Links */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center text-sm text-muted-foreground px-4">
-            <a 
-              href="mailto:hamzaerziki@outlook.com" 
-              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
-            >
-              {t('contact.email')}: hamzaerziki@outlook.com
-            </a>
-            <a 
-              href="tel:0624618601" 
-              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
-            >
-              {t('contact.phone')}: 0624618601
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/hamza-erziki/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-all duration-300 hover:scale-105 text-center sm:text-left"
-            >
-              {t('contact.linkedin')}
-            </a>
-          </div>
+        {/* Scroll cue */}
+        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground">
+          <span className="text-[11px] tracking-widest uppercase">{t('hero.scroll')}</span>
+          <ArrowDown className="h-4 w-4 animate-soft-bounce" />
         </div>
       </div>
     </section>
