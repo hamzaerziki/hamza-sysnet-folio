@@ -1,105 +1,81 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useReveal } from '@/hooks/useReveal';
+import { ArrowUpRight } from 'lucide-react';
+
+interface ProjectItem {
+  titleKey: string;
+  descKey: string;
+  tags: string[];
+  featured?: boolean;
+}
+
+const PROJECTS: ProjectItem[] = [
+  {
+    titleKey: 'projects.infrastructure',
+    descKey: 'projects.infrastructure.desc',
+    tags: ['Zabbix', 'Prometheus', 'Grafana', 'Segmentation'],
+    featured: true,
+  },
+  { titleKey: 'projects.misp',  descKey: 'projects.misp.desc',  tags: ['MISP', 'Wazuh', 'SIEM'] },
+  { titleKey: 'projects.sdwan', descKey: 'projects.sdwan.desc', tags: ['FortiGate', 'SD-WAN'] },
+  { titleKey: 'projects.nas',   descKey: 'projects.nas.desc',   tags: ['OpenMediaVault', 'Storage'] },
+  { titleKey: 'projects.ista',  descKey: 'projects.ista.desc',  tags: ['Clonezilla', 'Deployment'] },
+  { titleKey: 'projects.firewall', descKey: 'projects.firewall.desc', tags: ['BIG-IP', 'pfSense'] },
+  { titleKey: 'projects.network',  descKey: 'projects.network.desc',  tags: ['Cisco', 'OSPF', 'VLAN'] },
+];
+
+const Card = ({
+  p, featured, visible, delay,
+}: { p: ProjectItem; featured?: boolean; visible: boolean; delay: number }) => {
+  const { t } = useLanguage();
+  return (
+    <article
+      className={`group relative rounded-lg border border-border-solid bg-surface p-6 md:p-8 transition-colors hover:bg-surface-2 ${
+        featured ? 'md:col-span-2' : ''
+      }`}
+      style={{
+        animation: visible
+          ? `fade-in 600ms cubic-bezier(0.16,1,0.3,1) ${delay}ms both`
+          : undefined,
+      }}
+    >
+      <div className="flex items-start justify-between gap-4 mb-4">
+        {featured && <span className="pill">{t('projects.featured')}</span>}
+        <ArrowUpRight className="ml-auto h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+      </div>
+      <h3 className={`font-display text-foreground mb-3 leading-tight ${featured ? 'text-2xl md:text-3xl' : 'text-xl'}`}>
+        {t(p.titleKey)}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-prose">
+        {t(p.descKey)}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {p.tags.map(tag => (
+          <span key={tag} className="text-[11px] px-2 py-0.5 rounded-md bg-surface-offset text-muted-foreground border border-border-solid">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </article>
+  );
+};
 
 export const Projects = () => {
   const { t } = useLanguage();
-  const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>();
-
-  const projects = [
-    {
-      title: 'projects.infrastructure',
-      description: 'projects.infrastructure.desc',
-      technologies: ['Zabbix', 'Prometheus', 'Grafana'],
-      featured: true,
-    },
-    {
-      title: 'projects.nas',
-      description: 'projects.nas.desc',
-      technologies: ['OpenMediaVault', 'Storage', 'Networks', 'Hardware'],
-      featured: true,
-    },
-    {
-      title: 'projects.misp',
-      description: 'projects.misp.desc',
-      technologies: ['MISP', 'Wazuh', 'Threat Intelligence', 'SIEM'],
-      featured: true,
-    },
-    {
-      title: 'projects.ista',
-      description: 'projects.ista.desc',
-      technologies: ['Clonezilla', 'SSD', 'Câblage réseau', 'Déploiement'],
-      featured: true,
-    },
-    {
-      title: 'projects.sdwan',
-      description: 'projects.sdwan.desc',
-      technologies: ['FortiGate', 'SD-WAN', 'Routing', 'Security'],
-      featured: true,
-    },
-    {
-      title: 'projects.firewall',
-      description: 'projects.firewall.desc',
-      technologies: ['BIG-IP', 'FortiGate', 'pfSense', 'Security'],
-      featured: false,
-    },
-    {
-      title: 'projects.network',
-      description: 'projects.network.desc',
-      technologies: ['Cisco', 'VLAN', 'DHCP', 'Routing'],
-      featured: false,
-    },
-  ];
+  const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section ref={sectionRef} id="projects" className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className={`text-3xl md:text-4xl font-bold text-center mb-16 transition-all duration-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+    <section id="projects" className="py-24 md:py-32">
+      <div className="container mx-auto px-6">
+        <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} max-w-6xl mx-auto`}>
+          <span className="pill mb-6">{t('projects.eyebrow')}</span>
+          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
             {t('projects.title')}
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card 
-                key={index} 
-                className={`p-6 gradient-card shadow-card border-border/50 hover:shadow-purple transition-all duration-500 cursor-pointer group ${
-                  project.featured ? 'ring-1 ring-primary/20' : ''
-                } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className="space-y-4">
-                  {project.featured && (
-                    <Badge className="gradient-primary text-white text-xs">
-                      ⭐ {t('projects.featured')}
-                    </Badge>
-                  )}
-                  
-                  <div>
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-smooth">
-                      {t(project.title)}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {t(project.description)}
-                    </p>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex} 
-                        variant="secondary" 
-                        className="text-xs bg-muted text-foreground hover:bg-accent"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Card>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {PROJECTS.map((p, i) => (
+              <Card key={p.titleKey} p={p} featured={p.featured} visible={visible} delay={120 + i * 70} />
             ))}
           </div>
         </div>
