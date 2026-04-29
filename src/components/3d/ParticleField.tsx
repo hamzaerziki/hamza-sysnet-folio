@@ -17,9 +17,9 @@ export const ParticleField = () => {
   const particlesRef = useRef<Particle[]>([]);
   const animRef = useRef<number>(0);
 
-  const PARTICLE_COUNT = isMobile ? 40 : 100;
-  const CONNECTION_DIST = isMobile ? 120 : 150;
-  const MOUSE_RADIUS = 200;
+  const PARTICLE_COUNT = isMobile ? 24 : 60;
+  const CONNECTION_DIST = isMobile ? 110 : 140;
+  const MOUSE_RADIUS = 180;
 
   const initParticles = useCallback((w: number, h: number) => {
     const particles: Particle[] = [];
@@ -27,10 +27,10 @@ export const ParticleField = () => {
       particles.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        size: 1.5 + Math.random() * 2.5,
-        opacity: 0.3 + Math.random() * 0.7,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: 1 + Math.random() * 1.4,
+        opacity: 0.18 + Math.random() * 0.35,
       });
     }
     particlesRef.current = particles;
@@ -107,18 +107,15 @@ export const ParticleField = () => {
         if (p.y < -10) p.y = h + 10;
         if (p.y > h + 10) p.y = -10;
 
-        // Draw particle with glow
-        const glowSize = dist < MOUSE_RADIUS ? p.size * (1 + (1 - dist / MOUSE_RADIUS) * 2) : p.size;
-        const glowOpacity = dist < MOUSE_RADIUS ? Math.min(1, p.opacity + (1 - dist / MOUSE_RADIUS) * 0.5) : p.opacity;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, glowSize + 3, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(185, 80%, 50%, ${glowOpacity * 0.15})`;
-        ctx.fill();
+        // Resolve current accent dynamically (light: dark teal, dark: muted teal)
+        const root = getComputedStyle(document.documentElement);
+        const primary = root.getPropertyValue('--primary').trim() || '188 33% 47%';
+        const glowSize = dist < MOUSE_RADIUS ? p.size * (1 + (1 - dist / MOUSE_RADIUS) * 1.4) : p.size;
+        const glowOpacity = dist < MOUSE_RADIUS ? Math.min(0.7, p.opacity + (1 - dist / MOUSE_RADIUS) * 0.3) : p.opacity;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(185, 80%, 60%, ${glowOpacity})`;
+        ctx.fillStyle = `hsla(${primary}, ${glowOpacity})`;
         ctx.fill();
       }
 
@@ -130,32 +127,25 @@ export const ParticleField = () => {
           const d = Math.sqrt(dx * dx + dy * dy);
 
           if (d < CONNECTION_DIST) {
-            const alpha = (1 - d / CONNECTION_DIST) * 0.35;
-
-            // Brighter if near mouse
+            const alpha = (1 - d / CONNECTION_DIST) * 0.18;
             const midX = (particles[i].x + particles[j].x) / 2;
             const midY = (particles[i].y + particles[j].y) / 2;
             const mouseDist = Math.sqrt((mx - midX) ** 2 + (my - midY) ** 2);
-            const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.4 : 0;
+            const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.22 : 0;
 
+            const root = getComputedStyle(document.documentElement);
+            const primary = root.getPropertyValue('--primary').trim() || '188 33% 47%';
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(185, 75%, 55%, ${alpha + mouseBoost})`;
-            ctx.lineWidth = 0.8 + mouseBoost * 2;
+            ctx.strokeStyle = `hsla(${primary}, ${alpha + mouseBoost})`;
+            ctx.lineWidth = 0.6 + mouseBoost * 1.2;
             ctx.stroke();
           }
         }
       }
 
-      // Draw mouse glow
-      if (mx > 0 && my > 0) {
-        const gradient = ctx.createRadialGradient(mx, my, 0, mx, my, MOUSE_RADIUS * 0.6);
-        gradient.addColorStop(0, 'hsla(185, 80%, 50%, 0.08)');
-        gradient.addColorStop(1, 'hsla(185, 80%, 50%, 0)');
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, w, h);
-      }
+      // No mouse glow blob — design rule: minimal drama
 
       animRef.current = requestAnimationFrame(animate);
     };
