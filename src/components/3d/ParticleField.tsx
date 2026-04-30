@@ -107,15 +107,15 @@ export const ParticleField = () => {
         if (p.y < -10) p.y = h + 10;
         if (p.y > h + 10) p.y = -10;
 
-        // Resolve current accent dynamically (light: dark teal, dark: muted teal)
-        const root = getComputedStyle(document.documentElement);
-        const primary = root.getPropertyValue('--primary').trim() || '188 33% 47%';
+        // Dark mode: white lines/dots. Light mode: foreground (near-black).
+        const isDark = document.documentElement.classList.contains('dark');
+        const strokeHsl = isDark ? '0 0% 100%' : '30 12% 9%';
         const glowSize = dist < MOUSE_RADIUS ? p.size * (1 + (1 - dist / MOUSE_RADIUS) * 1.4) : p.size;
         const glowOpacity = dist < MOUSE_RADIUS ? Math.min(0.7, p.opacity + (1 - dist / MOUSE_RADIUS) * 0.3) : p.opacity;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${primary}, ${glowOpacity})`;
+        ctx.fillStyle = `hsla(${strokeHsl}, ${glowOpacity})`;
         ctx.fill();
       }
 
@@ -133,12 +133,12 @@ export const ParticleField = () => {
             const mouseDist = Math.sqrt((mx - midX) ** 2 + (my - midY) ** 2);
             const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.22 : 0;
 
-            const root = getComputedStyle(document.documentElement);
-            const primary = root.getPropertyValue('--primary').trim() || '188 33% 47%';
+            const isDark = document.documentElement.classList.contains('dark');
+            const strokeHsl = isDark ? '0 0% 100%' : '30 12% 9%';
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(${primary}, ${alpha + mouseBoost})`;
+            ctx.strokeStyle = `hsla(${strokeHsl}, ${alpha + mouseBoost})`;
             ctx.lineWidth = 0.6 + mouseBoost * 1.2;
             ctx.stroke();
           }
