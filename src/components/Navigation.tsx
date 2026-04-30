@@ -74,9 +74,10 @@ export const Navigation = () => {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={downloadCV}
-            className="inline-flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors"
+            className="group relative inline-flex items-center gap-2 h-9 px-4 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-[0_0_0_0_hsl(var(--primary)/0.45)] hover:shadow-[0_0_0_8px_hsl(var(--primary)/0)] hover:bg-primary-hover transition-all duration-300"
           >
-            <Download className="h-3.5 w-3.5" />
+            <span className="absolute inset-0 rounded-full ring-2 ring-primary/40 animate-cv-pulse pointer-events-none" />
+            <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
             {t('cv.download')}
           </button>
           <div className="h-5 w-px bg-border-solid" />
