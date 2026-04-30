@@ -1,44 +1,102 @@
-import { useState } from 'react';
-import { z } from 'zod';
-import { Mail, Linkedin, Phone, ArrowRight } from 'lucide-react';
+import { Mail, Linkedin, Phone, MessageCircle, Github, FileDown, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
 import { useToast } from '@/hooks/use-toast';
+import { useState } from 'react';
 
-const schema = z.object({
-  name: z.string().trim().min(1).max(80),
-  email: z.string().trim().email().max(160),
-  message: z.string().trim().min(5).max(1000),
-});
+const EMAIL = 'hamzaerziki@outlook.com';
+const PHONE_DISPLAY = '+212 6 24 61 86 01';
+const PHONE_TEL = '+212624618601';
+const WHATSAPP_NUMBER = '212624618601';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/hamza-erziki/';
+const GITHUB_URL = 'https://github.com/hamzaerziki';
+const CV_PATH = '/Hamza_Erziki_CV.pdf';
+
+interface CardDef {
+  key: string;
+  icon: typeof Mail;
+  label: string;
+  value: string;
+  hint: string;
+  href: string;
+  external?: boolean;
+  copyable?: string;
+  download?: boolean;
+}
 
 export const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const { ref, visible } = useReveal<HTMLDivElement>();
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sending, setSending] = useState(false);
+  const cards: CardDef[] = [
+    {
+      key: 'email',
+      icon: Mail,
+      label: t('contact.card.email.label'),
+      value: EMAIL,
+      hint: t('contact.card.email.hint'),
+      href: `mailto:${EMAIL}`,
+      copyable: EMAIL,
+    },
+    {
+      key: 'whatsapp',
+      icon: MessageCircle,
+      label: t('contact.card.whatsapp.label'),
+      value: PHONE_DISPLAY,
+      hint: t('contact.card.whatsapp.hint'),
+      href: `https://wa.me/${WHATSAPP_NUMBER}`,
+      external: true,
+    },
+    {
+      key: 'linkedin',
+      icon: Linkedin,
+      label: t('contact.card.linkedin.label'),
+      value: 'in/hamza-erziki',
+      hint: t('contact.card.linkedin.hint'),
+      href: LINKEDIN_URL,
+      external: true,
+    },
+    {
+      key: 'phone',
+      icon: Phone,
+      label: t('contact.card.phone.label'),
+      value: PHONE_DISPLAY,
+      hint: t('contact.card.phone.hint'),
+      href: `tel:${PHONE_TEL}`,
+      copyable: PHONE_DISPLAY,
+    },
+    {
+      key: 'github',
+      icon: Github,
+      label: t('contact.card.github.label'),
+      value: 'github.com/hamzaerziki',
+      hint: t('contact.card.github.hint'),
+      href: GITHUB_URL,
+      external: true,
+    },
+    {
+      key: 'cv',
+      icon: FileDown,
+      label: t('contact.card.cv.label'),
+      value: 'Hamza_Erziki_CV.pdf',
+      hint: t('contact.card.cv.hint'),
+      href: CV_PATH,
+      download: true,
+    },
+  ];
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const parsed = schema.safeParse(form);
-    if (!parsed.success) {
-      toast({ title: t('contact.form.error'), variant: 'destructive' });
-      return;
+  const copy = async (key: string, text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedKey(key);
+      toast({ title: t('contact.copied') });
+      setTimeout(() => setCopiedKey(k => (k === key ? null : k)), 1600);
+    } catch {
+      /* noop */
     }
-    setSending(true);
-    const subject = encodeURIComponent(`Portfolio — ${parsed.data.name}`);
-    const body = encodeURIComponent(`${parsed.data.message}\n\n— ${parsed.data.name} (${parsed.data.email})`);
-    window.location.href = `mailto:hamzaerziki@outlook.com?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      setSending(false);
-      toast({ title: t('contact.form.sent') });
-    }, 600);
   };
-
-  const set = (k: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setForm(f => ({ ...f, [k]: e.target.value }));
 
   return (
     <section id="contact" className="py-24 md:py-32">
@@ -50,68 +108,45 @@ export const Contact = () => {
           </h2>
           <p className="text-muted-foreground max-w-xl mb-12">{t('contact.sub')}</p>
 
-          <div className="grid lg:grid-cols-5 gap-10">
-            {/* Form */}
-            <form onSubmit={onSubmit} className="lg:col-span-3 space-y-4">
-              <div className="float-field">
-                <input
-                  type="text" id="name" value={form.name} onChange={set('name')}
-                  placeholder=" " maxLength={80} required
-                />
-                <label htmlFor="name">{t('contact.form.name')}</label>
-              </div>
-              <div className="float-field">
-                <input
-                  type="email" id="email" value={form.email} onChange={set('email')}
-                  placeholder=" " maxLength={160} required
-                />
-                <label htmlFor="email">{t('contact.form.email')}</label>
-              </div>
-              <div className="float-field">
-                <textarea
-                  id="message" value={form.message} onChange={set('message')}
-                  placeholder=" " maxLength={1000} required
-                />
-                <label htmlFor="message">{t('contact.form.message')}</label>
-              </div>
-              <button
-                type="submit"
-                disabled={sending}
-                className="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-primary text-primary-foreground hover:bg-primary-hover transition-colors text-sm font-medium disabled:opacity-60"
-              >
-                {sending ? t('contact.form.sending') : t('contact.form.send')}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
-            </form>
-
-            {/* Direct contacts */}
-            <aside className="lg:col-span-2 space-y-3">
-              <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-                {t('contact.direct')}
-              </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cards.map(({ key, icon: Icon, label, value, hint, href, external, copyable, download }) => (
               <a
-                href="mailto:hamzaerziki@outlook.com"
-                className="flex items-center gap-3 p-4 rounded-lg border border-border-solid bg-surface hover:bg-surface-2 transition-colors"
+                key={key}
+                href={href}
+                target={external ? '_blank' : undefined}
+                rel={external ? 'noopener noreferrer' : undefined}
+                download={download ? '' : undefined}
+                className="group relative flex flex-col gap-3 p-6 rounded-xl border border-border-solid bg-surface hover:bg-surface-2 hover:border-primary/40 transition-all duration-300"
               >
-                <Mail className="h-4 w-4 text-primary" />
-                <span className="text-sm text-foreground">hamzaerziki@outlook.com</span>
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                    {label}
+                  </p>
+                  <p className="text-sm text-foreground font-medium truncate">{value}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{hint}</p>
+                </div>
+                {copyable && (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      copy(key, copyable);
+                    }}
+                    aria-label="Copy"
+                    className="absolute bottom-4 right-4 inline-flex items-center justify-center h-7 w-7 rounded-md border border-border-solid bg-background/60 text-muted-foreground opacity-0 group-hover:opacity-100 hover:text-primary hover:border-primary/40 transition-all"
+                  >
+                    {copiedKey === key ? <Check className="h-3.5 w-3.5 text-primary" /> : <Copy className="h-3.5 w-3.5" />}
+                  </button>
+                )}
               </a>
-              <a
-                href="https://www.linkedin.com/in/hamza-erziki/"
-                target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-lg border border-border-solid bg-surface hover:bg-surface-2 transition-colors"
-              >
-                <Linkedin className="h-4 w-4 text-primary" />
-                <span className="text-sm text-foreground">linkedin.com/in/hamza-erziki</span>
-              </a>
-              <a
-                href="tel:0624618601"
-                className="flex items-center gap-3 p-4 rounded-lg border border-border-solid bg-surface hover:bg-surface-2 transition-colors"
-              >
-                <Phone className="h-4 w-4 text-primary" />
-                <span className="text-sm text-foreground">+212 6 24 61 86 01</span>
-              </a>
-            </aside>
+            ))}
           </div>
         </div>
       </div>
