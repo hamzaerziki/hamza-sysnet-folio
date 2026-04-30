@@ -105,6 +105,11 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(6px)" },
         },
+        "cv-pulse": {
+          "0%": { transform: "scale(1)", opacity: "0.7" },
+          "70%": { transform: "scale(1.18)", opacity: "0" },
+          "100%": { transform: "scale(1.18)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -113,6 +118,7 @@ export default {
         "scale-in": "scale-in 0.3s cubic-bezier(0.16,1,0.3,1)",
         "blink": "blink 1s steps(2, end) infinite",
         "soft-bounce": "soft-bounce 2.4s ease-in-out infinite",
+        "cv-pulse": "cv-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite",
       },
     },
   },
