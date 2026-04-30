@@ -85,14 +85,25 @@ export const Navigation = () => {
           <ThemeToggle />
         </div>
 
-        {/* Mobile trigger */}
-        <button
-          className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md border border-border-solid"
-          onClick={() => setOpen(o => !o)}
-          aria-label="Open menu"
-        >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-        </button>
+        {/* Mobile: CV button + menu trigger */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={downloadCV}
+            aria-label={t('cv.download')}
+            className="relative inline-flex items-center gap-1.5 h-9 px-3 rounded-full bg-primary text-primary-foreground text-xs font-semibold shadow-sm"
+          >
+            <span className="absolute inset-0 rounded-full ring-2 ring-primary/40 animate-cv-pulse pointer-events-none" />
+            <Download className="h-3.5 w-3.5" />
+            CV
+          </button>
+          <button
+            className="inline-flex items-center justify-center h-9 w-9 rounded-md border border-border-solid"
+            onClick={() => setOpen(o => !o)}
+            aria-label="Open menu"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer (slides from right with stagger) */}

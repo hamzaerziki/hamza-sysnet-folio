@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Terminal } from '@/components/widgets/Terminal';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import { ParticleField } from '@/components/3d/ParticleField';
 
 export const Hero = () => {
@@ -67,8 +67,10 @@ export const Hero = () => {
               </button>
               <button
                 onClick={downloadCV}
-                className="inline-flex items-center justify-center h-11 px-6 rounded-md border border-border-solid hover:bg-surface-offset text-foreground transition-colors text-sm font-medium"
+                className="group relative inline-flex items-center justify-center gap-2 h-11 px-6 rounded-md border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-semibold overflow-visible"
               >
+                <span className="absolute inset-0 rounded-md ring-2 ring-primary/40 animate-cv-pulse pointer-events-none" />
+                <Download className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
                 {t('hero.cta.secondary')}
               </button>
             </div>
