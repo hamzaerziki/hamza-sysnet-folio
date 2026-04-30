@@ -127,19 +127,19 @@ export const ParticleField = () => {
           const d = Math.sqrt(dx * dx + dy * dy);
 
           if (d < CONNECTION_DIST) {
-            const alpha = (1 - d / CONNECTION_DIST) * 0.18;
+            const isDark = document.documentElement.classList.contains('dark');
+            const baseAlpha = isDark ? 0.55 : 0.22;
+            const alpha = (1 - d / CONNECTION_DIST) * baseAlpha;
             const midX = (particles[i].x + particles[j].x) / 2;
             const midY = (particles[i].y + particles[j].y) / 2;
             const mouseDist = Math.sqrt((mx - midX) ** 2 + (my - midY) ** 2);
-            const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.22 : 0;
-
-            const isDark = document.documentElement.classList.contains('dark');
+            const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * (isDark ? 0.45 : 0.22) : 0;
             const strokeHsl = isDark ? '0 0% 100%' : '30 12% 9%';
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `hsla(${strokeHsl}, ${alpha + mouseBoost})`;
-            ctx.lineWidth = 0.6 + mouseBoost * 1.2;
+            ctx.lineWidth = (isDark ? 0.9 : 0.6) + mouseBoost * 1.2;
             ctx.stroke();
           }
         }
