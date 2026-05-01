@@ -11,10 +11,15 @@ interface ProjectItem {
 
 const PROJECTS: ProjectItem[] = [
   {
-    titleKey: 'projects.infrastructure',
-    descKey: 'projects.infrastructure.desc',
-    tags: ['Zabbix', 'Prometheus', 'Grafana', 'Segmentation'],
+    titleKey: 'projects.observability',
+    descKey: 'projects.observability.desc',
+    tags: ['Zabbix', 'Prometheus', 'Grafana', 'SIEM', 'SDN', 'TypeScript', 'ZeroTier'],
     featured: true,
+  },
+  {
+    titleKey: 'projects.devsecops',
+    descKey: 'projects.devsecops.desc',
+    tags: ['GitHub Actions', 'Gitleaks', 'Trivy', 'Docker', 'Wazuh', 'CI/CD', 'MinIO'],
   },
   { titleKey: 'projects.misp',  descKey: 'projects.misp.desc',  tags: ['MISP', 'Wazuh', 'SIEM'] },
   { titleKey: 'projects.sdwan', descKey: 'projects.sdwan.desc', tags: ['FortiGate', 'SD-WAN'] },
@@ -69,7 +74,7 @@ export const Projects = () => {
       <div className="container mx-auto px-6">
         <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} max-w-6xl mx-auto`}>
           <span className="pill mb-6">{t('projects.eyebrow')}</span>
-          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
+          <h2 className="font-display font-bold text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
             {t('projects.title')}
           </h2>
 

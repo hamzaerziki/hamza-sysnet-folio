@@ -62,6 +62,10 @@ const translations = {
 
     'projects.infrastructure': 'Infrastructure réseau sécurisée — supervision & détection',
     'projects.infrastructure.desc': 'Architecture complète avec segmentation, supervision (Zabbix, Prometheus, Grafana) et détection. Déployée en lab et documentée.',
+    'projects.observability': "Conception et développement d'un système intelligent d'observabilité, de décision et d'auto-remédiation des infrastructures",
+    'projects.observability.desc': "Plateforme intelligente combinant supervision, SIEM et SDN pour décider et auto-remédier les incidents d'infrastructure en temps réel.",
+    'projects.devsecops': "Mise en œuvre d'un pipeline DevSecOps sécurisé et résilient pour une plateforme",
+    'projects.devsecops.desc': "Pipeline CI/CD durci avec analyse de secrets, scan de vulnérabilités d'images et supervision sécurité continue.",
     'projects.nas': 'Serveur NAS sur matériel recyclé',
     'projects.nas.desc': "Conversion d'un PC en serveur NAS sous OpenMediaVault — partages réseau, snapshots, sauvegardes planifiées.",
     'projects.misp': 'Plateforme MISP + Wazuh',
@@ -155,6 +159,10 @@ const translations = {
 
     'projects.infrastructure': 'Secure network infrastructure — monitoring & detection',
     'projects.infrastructure.desc': 'Full architecture with segmentation, monitoring (Zabbix, Prometheus, Grafana) and detection. Built in lab and documented.',
+    'projects.observability': "Design and development of an intelligent observability, decision and auto-remediation system for infrastructures",
+    'projects.observability.desc': "Intelligent platform combining monitoring, SIEM and SDN to decide and auto-remediate infrastructure incidents in real time.",
+    'projects.devsecops': "Implementation of a secure and resilient DevSecOps pipeline for a platform",
+    'projects.devsecops.desc': "Hardened CI/CD pipeline with secret scanning, image vulnerability scanning and continuous security monitoring.",
     'projects.nas': 'NAS server on recycled hardware',
     'projects.nas.desc': 'Converted a PC into a NAS running OpenMediaVault — network shares, snapshots, scheduled backups.',
     'projects.misp': 'MISP + Wazuh platform',
@@ -200,7 +208,7 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('fr');
   const t = (key: string): string => {
     const val = translations[language][key as keyof typeof translations['en']];
     return val !== undefined ? val : key;

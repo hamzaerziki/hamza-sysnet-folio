@@ -17,7 +17,7 @@ export const About = () => {
       <div className="container mx-auto px-6">
         <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} max-w-5xl`}>
           <span className="pill mb-6">{t('about.eyebrow')}</span>
-          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
+          <h2 className="font-display font-bold text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
             {t('about.title')}
           </h2>
 
