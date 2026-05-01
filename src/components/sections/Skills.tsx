@@ -58,7 +58,7 @@ export const Skills = () => {
               className="md:col-span-3"
               icon={<Network className="h-5 w-5" />}
               title={t('skills.cat.network')}
-              items={['Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT', 'SD-WAN', 'SDN']}
+              items={['SD-WAN', 'SDN', 'Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT']}
             />
             <BentoCard
               visible={visible}
@@ -75,6 +75,14 @@ export const Skills = () => {
               icon={<Boxes className="h-5 w-5" />}
               title={t('skills.cat.virtualization')}
               items={['VMware ESXi', 'Proxmox', 'Hyper-V']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={270}
+              className="md:col-span-2"
+              icon={<Cloud className="h-5 w-5" />}
+              title={t('skills.cat.cloud')}
+              items={['Microsoft Azure', 'OpenStack', 'MinIO']}
             />
             <BentoCard
               visible={visible}
@@ -98,7 +106,7 @@ export const Skills = () => {
               className="md:col-span-3"
               icon={<Wrench className="h-5 w-5" />}
               title={t('skills.cat.devops')}
-              items={['Docker', 'CI/CD', 'GitHub Actions', 'Git', 'MinIO']}
+              items={['Docker', 'CI/CD', 'GitHub Actions', 'Git']}
             />
             <BentoCard
               visible={visible}
@@ -115,14 +123,6 @@ export const Skills = () => {
               icon={<Database className="h-5 w-5" />}
               title={t('skills.cat.database')}
               items={['SQL', 'PostgreSQL', 'MySQL']}
-            />
-            <BentoCard
-              visible={visible}
-              delay={600}
-              className="md:col-span-3"
-              icon={<Cloud className="h-5 w-5" />}
-              title={t('skills.cat.cloud')}
-              items={['Microsoft Azure', 'OpenStack', 'MinIO']}
             />
           </div>
         </div>

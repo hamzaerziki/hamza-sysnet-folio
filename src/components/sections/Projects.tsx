@@ -36,7 +36,6 @@ const PROJECTS: ProjectItem[] = [
   { titleKey: 'projects.nas',   descKey: 'projects.nas.desc',   tags: ['OpenMediaVault', 'Storage'] },
   { titleKey: 'projects.ista',  descKey: 'projects.ista.desc',  tags: ['Clonezilla', 'Deployment'] },
   { titleKey: 'projects.firewall', descKey: 'projects.firewall.desc', tags: ['BIG-IP', 'pfSense'] },
-  { titleKey: 'projects.network',  descKey: 'projects.network.desc',  tags: ['Cisco', 'OSPF', 'VLAN'] },
 ];
 
 const Card = ({
