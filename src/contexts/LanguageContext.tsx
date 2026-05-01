@@ -35,8 +35,9 @@ const translations = {
     // About
     'about.eyebrow': 'À propos',
     'about.title': 'Un parcours, pas un script.',
-    'about.p1': "Basé à Rabat, je construis et opère des infrastructures — systèmes Linux/Windows, réseaux d'entreprise, et pipelines DevOps. Mon obsession : des plateformes simples, observables et reproductibles.",
-    'about.p2': "Curieux de nature, j'apprends en construisant : labs virtuels, automatisation (Ansible, Terraform), conteneurs (Docker), CI/CD, et supervision. Ce portfolio est une trace honnête de ce parcours.",
+    'about.p1': "Je m'appelle Hamza. Basé à Rabat, je conçois et opère des infrastructures de bout en bout — du câble réseau au pipeline CI/CD, en passant par les systèmes Linux et Windows, la virtualisation (ESXi, Proxmox) et le cloud privé (OpenStack, Azure). Ce qui me motive, c'est de transformer une idée brute en une plateforme stable, observable et reproductible.",
+    'about.p2': "Formé à l'ISTA en Infrastructures Digitales, j'avance par projets concrets : un SIEM MISP + Wazuh, une simulation SD-WAN sous FortiGate, un cloud privé OpenStack, un pipeline DevSecOps durci avec Trivy et Gitleaks, ou encore un système intelligent d'observabilité et d'auto-remédiation. J'aime autant casser un lab pour comprendre que documenter pour transmettre.",
+    'about.p3': "Côté terrain, je parle systèmes, réseaux et DevOps — mais aussi développement SaaS et mobile quand il faut livrer un produit complet. Trilingue (FR · EN · AR), curieux par défaut, je cherche des environnements où l'ingénierie sérieuse rencontre des équipes qui ont envie de bien faire.",
     'about.fact.location': 'Localisation',
     'about.fact.location.value': 'Rabat, Maroc',
     'about.fact.focus': 'Focus',
@@ -141,8 +142,9 @@ const translations = {
     // About
     'about.eyebrow': 'About',
     'about.title': 'A path, not a script.',
-    'about.p1': "Based in Rabat, I build and operate infrastructure — Linux/Windows systems, enterprise networks, and DevOps pipelines. My obsession: simple, observable, reproducible platforms.",
-    'about.p2': "Curious by default, I learn by building: virtual labs, automation (Ansible, Terraform), containers (Docker), CI/CD, and monitoring. This portfolio is an honest trace of that path.",
+    'about.p1': "I'm Hamza. Based in Rabat, I design and operate infrastructure end to end — from the network cable to the CI/CD pipeline, across Linux and Windows systems, virtualization (ESXi, Proxmox) and private cloud (OpenStack, Azure). What drives me is turning a rough idea into a stable, observable, reproducible platform.",
+    'about.p2': "Trained at ISTA in Digital Infrastructures, I learn by shipping real projects: a MISP + Wazuh SIEM, a FortiGate SD-WAN simulation, a private OpenStack cloud, a hardened DevSecOps pipeline with Trivy and Gitleaks, and an intelligent observability and auto-remediation system. I like breaking a lab to understand it just as much as documenting it to pass it on.",
+    'about.p3': "On the ground I speak systems, networks and DevOps — and also SaaS and mobile development when a full product needs to ship. Trilingual (EN · FR · AR), curious by default, I'm looking for places where serious engineering meets teams who genuinely care about the craft.",
     'about.fact.location': 'Based in',
     'about.fact.location.value': 'Rabat, Morocco',
     'about.fact.focus': 'Focus',

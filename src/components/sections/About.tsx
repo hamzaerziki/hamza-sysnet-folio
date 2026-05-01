@@ -26,6 +26,7 @@ export const About = () => {
             <div className="space-y-5">
               <p className="text-foreground leading-relaxed">{t('about.p1')}</p>
               <p className="text-muted-foreground leading-relaxed">{t('about.p2')}</p>
+              <p className="text-muted-foreground leading-relaxed">{t('about.p3')}</p>
             </div>
 
             {/* Facts grid with stagger */}
