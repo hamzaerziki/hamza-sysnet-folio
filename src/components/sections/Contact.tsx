@@ -103,7 +103,7 @@ export const Contact = () => {
       <div className="container mx-auto px-6">
         <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} max-w-6xl mx-auto`}>
           <span className="pill mb-6">{t('contact.eyebrow')}</span>
-          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-4">
+          <h2 className="font-display font-bold text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-4">
             {t('contact.title')}
           </h2>
           <p className="text-muted-foreground max-w-xl mb-12">{t('contact.sub')}</p>

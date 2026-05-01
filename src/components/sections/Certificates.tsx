@@ -35,7 +35,7 @@ export const Certificates = () => {
           <div className="flex items-end justify-between gap-6 mb-12">
             <div>
               <span className="pill mb-6">{t('certs.eyebrow')}</span>
-              <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mt-4">
+              <h2 className="font-display font-bold text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mt-4">
                 {t('certs.title')}
               </h2>
             </div>

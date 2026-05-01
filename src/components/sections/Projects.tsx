@@ -74,7 +74,7 @@ export const Projects = () => {
       <div className="container mx-auto px-6">
         <div ref={ref} className={`reveal ${visible ? 'is-visible' : ''} max-w-6xl mx-auto`}>
           <span className="pill mb-6">{t('projects.eyebrow')}</span>
-          <h2 className="font-display text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
+          <h2 className="font-display font-bold text-[clamp(1.875rem,4vw,3rem)] leading-tight text-foreground mb-12">
             {t('projects.title')}
           </h2>
 
