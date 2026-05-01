@@ -78,6 +78,14 @@ export const Skills = () => {
             />
             <BentoCard
               visible={visible}
+              delay={270}
+              className="md:col-span-2"
+              icon={<Cloud className="h-5 w-5" />}
+              title={t('skills.cat.cloud')}
+              items={['Microsoft Azure', 'OpenStack', 'MinIO']}
+            />
+            <BentoCard
+              visible={visible}
               delay={300}
               className="md:col-span-2"
               icon={<Shield className="h-5 w-5" />}
@@ -115,14 +123,6 @@ export const Skills = () => {
               icon={<Database className="h-5 w-5" />}
               title={t('skills.cat.database')}
               items={['SQL', 'PostgreSQL', 'MySQL']}
-            />
-            <BentoCard
-              visible={visible}
-              delay={600}
-              className="md:col-span-3"
-              icon={<Cloud className="h-5 w-5" />}
-              title={t('skills.cat.cloud')}
-              items={['Microsoft Azure', 'OpenStack', 'MinIO']}
             />
           </div>
         </div>
