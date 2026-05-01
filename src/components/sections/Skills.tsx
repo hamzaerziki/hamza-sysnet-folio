@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal } from 'lucide-react';
+import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal, Database, Cloud } from 'lucide-react';
 
 interface BentoCardProps {
   className?: string;
@@ -107,6 +107,22 @@ export const Skills = () => {
               icon={<Terminal className="h-5 w-5" />}
               title={t('skills.cat.scripting')}
               items={['Bash', 'Python', 'PowerShell', 'YAML']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={540}
+              className="md:col-span-3"
+              icon={<Database className="h-5 w-5" />}
+              title={t('skills.cat.database')}
+              items={['SQL', 'PostgreSQL', 'MySQL']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={600}
+              className="md:col-span-3"
+              icon={<Cloud className="h-5 w-5" />}
+              title={t('skills.cat.cloud')}
+              items={['Microsoft Azure', 'OpenStack', 'MinIO']}
             />
           </div>
         </div>
