@@ -58,7 +58,7 @@ export const Skills = () => {
               className="md:col-span-3"
               icon={<Network className="h-5 w-5" />}
               title={t('skills.cat.network')}
-              items={['Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT', 'SD-WAN', 'SDN']}
+              items={['SD-WAN', 'SDN', 'Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT']}
             />
             <BentoCard
               visible={visible}
@@ -98,7 +98,7 @@ export const Skills = () => {
               className="md:col-span-3"
               icon={<Wrench className="h-5 w-5" />}
               title={t('skills.cat.devops')}
-              items={['Docker', 'CI/CD', 'GitHub Actions', 'Git', 'MinIO']}
+              items={['Docker', 'CI/CD', 'GitHub Actions', 'Git']}
             />
             <BentoCard
               visible={visible}
