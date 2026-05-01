@@ -50,9 +50,12 @@ const translations = {
     'skills.eyebrow': 'Compétences',
     'skills.title': 'Stack & outils.',
     'skills.cat.network': 'Réseau & infrastructure',
-    'skills.cat.security': 'Sécurité',
     'skills.cat.systems': 'Systèmes',
-    'skills.cat.tools': 'Outils & DevOps',
+    'skills.cat.virtualization': 'Virtualisation',
+    'skills.cat.security': 'Sécurité',
+    'skills.cat.monitoring': 'Supervision',
+    'skills.cat.devops': 'DevOps',
+    'skills.cat.scripting': 'Scripting',
 
     // Projects
     'projects.eyebrow': 'Projets',
@@ -147,9 +150,12 @@ const translations = {
     'skills.eyebrow': 'Skills',
     'skills.title': 'Stack & tooling.',
     'skills.cat.network': 'Network & Infrastructure',
-    'skills.cat.security': 'Security',
     'skills.cat.systems': 'Systems',
-    'skills.cat.tools': 'Tools & DevOps',
+    'skills.cat.virtualization': 'Virtualization',
+    'skills.cat.security': 'Security',
+    'skills.cat.monitoring': 'Monitoring',
+    'skills.cat.devops': 'DevOps',
+    'skills.cat.scripting': 'Scripting',
 
     // Projects
     'projects.eyebrow': 'Work',

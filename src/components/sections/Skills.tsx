@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { Network, Shield, Server, Wrench } from 'lucide-react';
+import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal } from 'lucide-react';
 
 interface BentoCardProps {
   className?: string;
@@ -55,34 +55,58 @@ export const Skills = () => {
             <BentoCard
               visible={visible}
               delay={120}
-              className="md:col-span-4"
+              className="md:col-span-3"
               icon={<Network className="h-5 w-5" />}
               title={t('skills.cat.network')}
               items={['Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT', 'SD-WAN', 'SDN']}
             />
             <BentoCard
               visible={visible}
-              delay={200}
-              className="md:col-span-2"
-              icon={<Shield className="h-5 w-5" />}
-              title={t('skills.cat.security')}
-              items={['FortiGate', 'pfSense', 'BIG-IP', 'MISP', 'Wazuh']}
-            />
-            <BentoCard
-              visible={visible}
-              delay={280}
+              delay={180}
               className="md:col-span-3"
               icon={<Server className="h-5 w-5" />}
               title={t('skills.cat.systems')}
-              items={['Ubuntu', 'RedHat', 'Windows Server', 'Active Directory', 'VMware ESXi', 'Proxmox', 'Docker']}
+              items={['Linux', 'Ubuntu', 'RedHat', 'Windows Server', 'Active Directory']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={240}
+              className="md:col-span-2"
+              icon={<Boxes className="h-5 w-5" />}
+              title={t('skills.cat.virtualization')}
+              items={['VMware ESXi', 'Proxmox', 'Hyper-V']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={300}
+              className="md:col-span-2"
+              icon={<Shield className="h-5 w-5" />}
+              title={t('skills.cat.security')}
+              items={['FortiGate', 'pfSense', 'BIG-IP', 'MISP', 'Wazuh', 'Nmap', 'Gitleaks', 'Trivy']}
             />
             <BentoCard
               visible={visible}
               delay={360}
+              className="md:col-span-2"
+              icon={<Activity className="h-5 w-5" />}
+              title={t('skills.cat.monitoring')}
+              items={['Zabbix', 'Prometheus', 'Grafana']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={420}
               className="md:col-span-3"
               icon={<Wrench className="h-5 w-5" />}
-              title={t('skills.cat.tools')}
-              items={['Zabbix', 'Prometheus', 'Grafana', 'Git', 'Ansible', 'Bash', 'Python', 'PowerShell']}
+              title={t('skills.cat.devops')}
+              items={['Docker', 'CI/CD', 'GitHub Actions', 'Git', 'MinIO']}
+            />
+            <BentoCard
+              visible={visible}
+              delay={480}
+              className="md:col-span-3"
+              icon={<Terminal className="h-5 w-5" />}
+              title={t('skills.cat.scripting')}
+              items={['Bash', 'Python', 'PowerShell', 'YAML']}
             />
           </div>
         </div>
