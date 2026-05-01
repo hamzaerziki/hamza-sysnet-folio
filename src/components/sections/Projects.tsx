@@ -21,6 +21,16 @@ const PROJECTS: ProjectItem[] = [
     descKey: 'projects.devsecops.desc',
     tags: ['GitHub Actions', 'Gitleaks', 'Trivy', 'Docker', 'Wazuh', 'CI/CD', 'MinIO'],
   },
+  {
+    titleKey: 'projects.privatecloud',
+    descKey: 'projects.privatecloud.desc',
+    tags: ['OpenStack', 'KVM', 'Virtualization', 'Private Cloud'],
+  },
+  {
+    titleKey: 'projects.saas',
+    descKey: 'projects.saas.desc',
+    tags: ['SaaS', 'Mobile', 'TypeScript', 'Security'],
+  },
   { titleKey: 'projects.misp',  descKey: 'projects.misp.desc',  tags: ['MISP', 'Wazuh', 'SIEM'] },
   { titleKey: 'projects.sdwan', descKey: 'projects.sdwan.desc', tags: ['FortiGate', 'SD-WAN'] },
   { titleKey: 'projects.nas',   descKey: 'projects.nas.desc',   tags: ['OpenMediaVault', 'Storage'] },

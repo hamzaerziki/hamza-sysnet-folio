@@ -56,6 +56,8 @@ const translations = {
     'skills.cat.monitoring': 'Supervision',
     'skills.cat.devops': 'DevOps',
     'skills.cat.scripting': 'Scripting',
+    'skills.cat.database': 'Base de données',
+    'skills.cat.cloud': 'Cloud',
 
     // Projects
     'projects.eyebrow': 'Projets',
@@ -81,6 +83,10 @@ const translations = {
     'projects.firewall.desc': 'Comparatif pratique BIG-IP, FortiGate et pfSense sur scénarios réels.',
     'projects.network': 'Architecture réseau Cisco',
     'projects.network.desc': 'Conception et implémentation : VLAN, DHCP, OSPF, redondance.',
+    'projects.saas': 'Développement de solutions SaaS & mobile professionnelles et sécurisées',
+    'projects.saas.desc': "Conception et développement d'applications SaaS et mobiles à usage professionnel, avec un focus sur la sécurité, la scalabilité et l'expérience utilisateur.",
+    'projects.privatecloud': 'Déploiement d\'un cloud privé OpenStack sur infrastructure virtualisée',
+    'projects.privatecloud.desc': "Installation et configuration d'OpenStack sur un environnement virtualisé pour bâtir un cloud privé : compute, networking, storage et orchestration.",
 
     // Certifications
     'certs.eyebrow': 'Certifications',
@@ -156,6 +162,8 @@ const translations = {
     'skills.cat.monitoring': 'Monitoring',
     'skills.cat.devops': 'DevOps',
     'skills.cat.scripting': 'Scripting',
+    'skills.cat.database': 'Database',
+    'skills.cat.cloud': 'Cloud',
 
     // Projects
     'projects.eyebrow': 'Work',
@@ -181,6 +189,10 @@ const translations = {
     'projects.firewall.desc': 'Hands-on comparison of BIG-IP, FortiGate and pfSense on real scenarios.',
     'projects.network': 'Cisco network architecture',
     'projects.network.desc': 'Design and implementation: VLAN, DHCP, OSPF, redundancy.',
+    'projects.saas': 'Professional & secure SaaS and mobile application development',
+    'projects.saas.desc': "Design and development of SaaS and mobile applications for professional use, with a focus on security, scalability and user experience.",
+    'projects.privatecloud': 'Private cloud deployment with OpenStack on virtualized infrastructure',
+    'projects.privatecloud.desc': "Installation and configuration of OpenStack on a virtualized environment to build a private cloud: compute, networking, storage and orchestration.",
 
     // Certifications
     'certs.eyebrow': 'Certifications',
