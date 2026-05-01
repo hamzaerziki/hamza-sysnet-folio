@@ -11,10 +11,15 @@ interface ProjectItem {
 
 const PROJECTS: ProjectItem[] = [
   {
-    titleKey: 'projects.infrastructure',
-    descKey: 'projects.infrastructure.desc',
-    tags: ['Zabbix', 'Prometheus', 'Grafana', 'Segmentation'],
+    titleKey: 'projects.observability',
+    descKey: 'projects.observability.desc',
+    tags: ['Zabbix', 'Prometheus', 'Grafana', 'SIEM', 'SDN', 'TypeScript', 'ZeroTier'],
     featured: true,
+  },
+  {
+    titleKey: 'projects.devsecops',
+    descKey: 'projects.devsecops.desc',
+    tags: ['GitHub Actions', 'Gitleaks', 'Trivy', 'Docker', 'Wazuh', 'CI/CD', 'MinIO'],
   },
   { titleKey: 'projects.misp',  descKey: 'projects.misp.desc',  tags: ['MISP', 'Wazuh', 'SIEM'] },
   { titleKey: 'projects.sdwan', descKey: 'projects.sdwan.desc', tags: ['FortiGate', 'SD-WAN'] },
