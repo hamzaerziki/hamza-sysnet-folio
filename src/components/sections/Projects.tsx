@@ -35,7 +35,7 @@ const PROJECTS: ProjectItem[] = [
   { titleKey: 'projects.sdwan', descKey: 'projects.sdwan.desc', tags: ['FortiGate', 'SD-WAN'] },
   { titleKey: 'projects.nas',   descKey: 'projects.nas.desc',   tags: ['OpenMediaVault', 'Storage'] },
   { titleKey: 'projects.ista',  descKey: 'projects.ista.desc',  tags: ['Clonezilla', 'Deployment'] },
-  { titleKey: 'projects.firewall', descKey: 'projects.firewall.desc', tags: ['BIG-IP', 'pfSense'] },
+  { titleKey: 'projects.firewall', descKey: 'projects.firewall.desc', tags: ['FortiGate', 'BIG-IP', 'pfSense'] },
 ];
 
 /* ---------- Featured Hero Card ---------- */
