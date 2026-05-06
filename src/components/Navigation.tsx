@@ -7,6 +7,7 @@ import { Logo } from './Logo';
 
 const NAV_LINKS = [
   { key: 'about', id: 'about' },
+  { key: 'services', id: 'services' },
   { key: 'skills', id: 'skills' },
   { key: 'projects', id: 'projects' },
   { key: 'certificates', id: 'certificates' },

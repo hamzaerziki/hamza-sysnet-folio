@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal, Database, Cloud } from 'lucide-react';
+import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal, Database, Cloud, Code2 } from 'lucide-react';
 
 interface SkillCardProps {
   delay?: number;
@@ -78,6 +78,7 @@ export const Skills = () => {
     { icon: <Wrench className="h-4 w-4" />, title: t('skills.cat.devops'), items: ['Docker', 'CI/CD', 'GitHub Actions', 'Git'] },
     { icon: <Terminal className="h-4 w-4" />, title: t('skills.cat.scripting'), items: ['Bash', 'Python', 'PowerShell', 'YAML'] },
     { icon: <Database className="h-4 w-4" />, title: t('skills.cat.database'), items: ['SQL', 'PostgreSQL', 'MySQL'] },
+    { icon: <Code2 className="h-4 w-4" />, title: t('skills.cat.fullstack'), items: ['TypeScript', 'React', 'Node.js', 'Next.js', 'React Native', 'Tailwind', 'REST', 'WebSocket'] },
   ];
 
   return (

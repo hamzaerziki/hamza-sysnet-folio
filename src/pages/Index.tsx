@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { Navigation } from '@/components/Navigation';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
+import { Services } from '@/components/sections/Services';
 import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { Certificates } from '@/components/sections/Certificates';
@@ -22,6 +23,7 @@ const Index = () => (
         <main>
           <Hero />
           <About />
+          <Services />
           <Skills />
           <Projects />
           <Certificates />
