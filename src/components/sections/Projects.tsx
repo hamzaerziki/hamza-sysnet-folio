@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
 import { ArrowUpRight, Sparkles, ChevronDown, Building2, ShieldCheck, GraduationCap, Smartphone, Activity, Server } from 'lucide-react';
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, Fragment } from 'react';
 
 interface ProjectItem {
   id: string;
@@ -460,9 +460,8 @@ export const Projects = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {rest.map((p, i) => (
-              <>
+              <Fragment key={p.id}>
                 <ProjectCard
-                  key={p.id}
                   p={p}
                   visible={visible}
                   delay={220 + i * 60}
@@ -470,9 +469,9 @@ export const Projects = () => {
                   onOpen={() => setOpenId(p.id)}
                 />
                 {opened && opened.id === p.id && (
-                  <DetailBlock key={`${p.id}-detail`} p={opened} onClose={() => setOpenId(null)} />
+                  <DetailBlock p={opened} onClose={() => setOpenId(null)} />
                 )}
-              </>
+              </Fragment>
             ))}
           </div>
         </div>
