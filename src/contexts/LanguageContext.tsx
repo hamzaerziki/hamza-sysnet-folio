@@ -74,6 +74,7 @@ const translations = {
     'skills.cat.database': 'Base de données',
     'skills.cat.cloud': 'Cloud',
     'skills.cat.fullstack': 'Full-Stack',
+    'skills.cat.tools': 'Outils',
 
     // Projects
     'projects.eyebrow': 'Projets',
@@ -180,6 +181,7 @@ const translations = {
     'skills.cat.database': 'Database',
     'skills.cat.cloud': 'Cloud',
     'skills.cat.fullstack': 'Full-Stack',
+    'skills.cat.tools': 'Tools',
 
     // Projects
     'projects.eyebrow': 'Work',
