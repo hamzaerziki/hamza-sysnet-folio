@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { Network, Shield, Server, Wrench, Boxes, Activity, Terminal, Database, Cloud, Code2 } from 'lucide-react';
+import { Network, Shield, Server, Wrench, Boxes } from 'lucide-react';
 
 interface SkillCardProps {
   delay?: number;
@@ -69,16 +69,11 @@ export const Skills = () => {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   const categories = [
-    { icon: <Network className="h-4 w-4" />, title: t('skills.cat.network'), items: ['SD-WAN', 'SDN', 'Cisco IOS', 'VLAN', 'OSPF', 'BGP', 'TCP/IP', 'NAT'] },
-    { icon: <Server className="h-4 w-4" />, title: t('skills.cat.systems'), items: ['Linux', 'Ubuntu', 'RedHat', 'Windows Server', 'Active Directory'] },
-    { icon: <Boxes className="h-4 w-4" />, title: t('skills.cat.virtualization'), items: ['VMware ESXi', 'Proxmox', 'Hyper-V'] },
-    { icon: <Cloud className="h-4 w-4" />, title: t('skills.cat.cloud'), items: ['Microsoft Azure', 'OpenStack', 'MinIO'] },
-    { icon: <Shield className="h-4 w-4" />, title: t('skills.cat.security'), items: ['FortiGate', 'pfSense', 'BIG-IP', 'MISP', 'Wazuh', 'Nmap', 'Gitleaks', 'Trivy'] },
-    { icon: <Activity className="h-4 w-4" />, title: t('skills.cat.monitoring'), items: ['Zabbix', 'Prometheus', 'Grafana'] },
-    { icon: <Wrench className="h-4 w-4" />, title: t('skills.cat.devops'), items: ['Docker', 'CI/CD', 'GitHub Actions', 'Git'] },
-    { icon: <Terminal className="h-4 w-4" />, title: t('skills.cat.scripting'), items: ['Bash', 'Python', 'PowerShell', 'YAML'] },
-    { icon: <Database className="h-4 w-4" />, title: t('skills.cat.database'), items: ['SQL', 'PostgreSQL', 'MySQL'] },
-    { icon: <Code2 className="h-4 w-4" />, title: t('skills.cat.fullstack'), items: ['TypeScript', 'React', 'Node.js', 'Next.js', 'React Native', 'Tailwind', 'REST', 'WebSocket'] },
+    { icon: <Server className="h-4 w-4" />, title: t('skills.cat.systems'), items: ['Linux', 'Windows Server', 'Active Directory', 'GPO', 'DNS', 'DHCP'] },
+    { icon: <Network className="h-4 w-4" />, title: t('skills.cat.network'), items: ['Routing', 'Switching', 'VLAN', 'NAT', 'ACL', 'VPN', 'Firewalling', 'OSPF', 'BGP'] },
+    { icon: <Shield className="h-4 w-4" />, title: t('skills.cat.security'), items: ['Hardening', 'Access control', 'FortiGate', 'pfSense', 'Wazuh', 'MISP', 'Threat awareness'] },
+    { icon: <Wrench className="h-4 w-4" />, title: t('skills.cat.devops'), items: ['Automation', 'CI/CD', 'GitHub Actions', 'Observability', 'Backup strategy', 'Deployment workflows'] },
+    { icon: <Boxes className="h-4 w-4" />, title: t('skills.cat.tools'), items: ['Docker', 'Proxmox', 'VMware', 'Zabbix', 'Prometheus', 'Grafana', 'Bash', 'Python', 'PowerShell'] },
   ];
 
   return (
