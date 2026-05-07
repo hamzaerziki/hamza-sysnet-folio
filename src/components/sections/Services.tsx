@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { ServerCog, ShieldCheck, LayoutDashboard, Smartphone } from 'lucide-react';
+import { ServerCog, Network, ShieldCheck, GitBranch } from 'lucide-react';
 
 export const Services = () => {
   const { t } = useLanguage();
@@ -8,9 +8,9 @@ export const Services = () => {
 
   const items = [
     { icon: <ServerCog className="h-5 w-5" />, title: t('services.infra.title'), desc: t('services.infra.desc') },
-    { icon: <ShieldCheck className="h-5 w-5" />, title: t('services.devsecops.title'), desc: t('services.devsecops.desc') },
-    { icon: <LayoutDashboard className="h-5 w-5" />, title: t('services.fullstack.title'), desc: t('services.fullstack.desc') },
-    { icon: <Smartphone className="h-5 w-5" />, title: t('services.mobile.title'), desc: t('services.mobile.desc') },
+    { icon: <Network className="h-5 w-5" />, title: t('services.devsecops.title'), desc: t('services.devsecops.desc') },
+    { icon: <ShieldCheck className="h-5 w-5" />, title: t('services.fullstack.title'), desc: t('services.fullstack.desc') },
+    { icon: <GitBranch className="h-5 w-5" />, title: t('services.mobile.title'), desc: t('services.mobile.desc') },
   ];
 
   return (
