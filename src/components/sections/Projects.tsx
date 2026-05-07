@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useReveal } from '@/hooks/useReveal';
-import { ArrowUpRight, Sparkles, ChevronDown, Building2, ShieldCheck, GraduationCap, Smartphone, Activity, Server } from 'lucide-react';
+import { ArrowUpRight, Sparkles, ChevronDown, Activity, Server, Shield, Network, HardDrive, Cloud, Container, Radar } from 'lucide-react';
 import { useState, ReactNode, Fragment } from 'react';
 
 interface ProjectItem {
@@ -23,46 +23,6 @@ const useProjects = (): ProjectItem[] => {
   const FR = language === 'fr';
 
   return [
-    {
-      id: 'iydati',
-      icon: <Building2 className="h-4 w-4" />,
-      category: FR ? 'ERP · SaaS' : 'ERP · SaaS',
-      title: 'IYDATI ERP',
-      tagline: FR
-        ? "ERP complet pour la gestion de cabinet : patients, agendas, facturation et stock."
-        : 'Full ERP for cabinet management: patients, schedules, billing and inventory.',
-      problem: FR
-        ? "Les cabinets médicaux et professionnels gèrent encore agendas, dossiers patients, facturation et stock sur des outils dispersés (Excel, papier, logiciels isolés), ce qui multiplie les erreurs et fait perdre un temps considérable."
-        : 'Medical and professional cabinets still manage schedules, patient records, billing and stock across scattered tools (Excel, paper, siloed software), causing errors and major time loss.',
-      solution: FR
-        ? "Un ERP unifié, modulaire et sécurisé centralisant la gestion du cabinet : fiches patients, prises de rendez-vous, ordonnances, facturation, paiements, stock et reporting — accessible en SaaS, multi-utilisateurs avec rôles."
-        : 'A unified, modular and secure ERP centralizing cabinet management: patient records, appointments, prescriptions, billing, payments, stock and reporting — delivered as SaaS, multi-user with role-based access.',
-      role: FR
-        ? "Conception produit, architecture technique, développement full-stack, sécurisation, déploiement et accompagnement client."
-        : 'Product design, technical architecture, full-stack development, hardening, deployment and customer onboarding.',
-      features: FR
-        ? [
-            'Gestion patients & dossiers médicaux',
-            'Agenda multi-praticiens et rappels',
-            'Facturation, devis et suivi des paiements',
-            'Gestion du stock et alertes seuils',
-            'Rôles & permissions granulaires',
-            'Tableaux de bord et exports',
-          ]
-        : [
-            'Patient management & medical records',
-            'Multi-practitioner agenda & reminders',
-            'Billing, quotes and payment tracking',
-            'Inventory management with low-stock alerts',
-            'Granular roles & permissions',
-            'Dashboards and data exports',
-          ],
-      impact: FR
-        ? "Réduction drastique du temps administratif, fiabilisation de la facturation et vision 360° du cabinet en un seul outil."
-        : 'Drastic reduction of admin time, reliable billing, and a 360° view of the cabinet in a single tool.',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'TypeScript', 'SaaS', 'RBAC'],
-      featured: true,
-    },
     {
       id: 'monitoring',
       icon: <Activity className="h-4 w-4" />,
@@ -103,125 +63,266 @@ const useProjects = (): ProjectItem[] => {
         ? "MTTR réduit, équipes déchargées des incidents répétitifs et infrastructure auto-réparante sur les scénarios connus."
         : 'Reduced MTTR, teams freed from repetitive incidents, and self-healing infrastructure on known scenarios.',
       tags: ['Zabbix', 'Prometheus', 'Grafana', 'SIEM', 'SDN', 'TypeScript'],
+      featured: true,
     },
     {
-      id: 'edumanage',
-      icon: <GraduationCap className="h-4 w-4" />,
-      category: FR ? 'SaaS · Éducation' : 'SaaS · Education',
-      title: 'Edumanage SaaS',
+      id: 'sdwan',
+      icon: <Network className="h-4 w-4" />,
+      category: FR ? 'Réseaux · SD-WAN' : 'Networking · SD-WAN',
+      title: FR ? 'Simulation SD-WAN avec FortiGate' : 'SD-WAN simulation with FortiGate',
       tagline: FR
-        ? "Plateforme SaaS de gestion pour écoles et centres de formation."
-        : 'SaaS platform for managing schools and training centers.',
+        ? "Maquette SD-WAN multi-sites avec FortiGate : routage dynamique, tunnels et basculement automatique."
+        : 'Multi-site SD-WAN lab on FortiGate: dynamic routing, tunnels and automated failover.',
       problem: FR
-        ? "Écoles et centres jonglent entre inscriptions papier, plannings Excel, suivi des paiements et communication parents — sans vision consolidée."
-        : 'Schools and centers juggle paper enrollments, Excel schedules, payment tracking and parent communication — with no consolidated view.',
+        ? "Les architectures WAN traditionnelles peinent à offrir résilience, sélection de chemin et optimisation des liens entre sites distants."
+        : 'Traditional WAN designs struggle to deliver resilience, path selection and link optimization across remote sites.',
       solution: FR
-        ? "Une plateforme SaaS multi-rôles (admin, enseignants, étudiants, parents) couvrant inscriptions, emplois du temps, présences, notes, paiements et communication interne."
-        : 'A multi-role SaaS platform (admin, teachers, students, parents) covering enrollments, schedules, attendance, grades, payments and internal communication.',
+        ? "Conception et déploiement d'une topologie SD-WAN sur FortiGate avec tunnels IPsec, SD-WAN rules, monitoring SLA et bascule automatique en cas de dégradation de lien."
+        : 'Design and deployment of an SD-WAN topology on FortiGate with IPsec tunnels, SD-WAN rules, SLA monitoring and automatic failover on link degradation.',
       role: FR
-        ? "Conception produit, modélisation des rôles, développement full-stack, déploiement et support."
-        : 'Product design, role modeling, full-stack development, deployment and support.',
+        ? "Conception de la topologie, configuration des FortiGate, mise en place des règles SD-WAN et tests de bascule."
+        : 'Topology design, FortiGate configuration, SD-WAN rules setup and failover testing.',
       features: FR
         ? [
-            'Inscriptions & dossiers étudiants',
-            'Emplois du temps et présences',
-            'Notes, bulletins et évaluations',
-            'Paiements et reçus',
-            'Espace parents & enseignants',
-            'Notifications et messagerie',
+            'Tunnels IPsec site-à-site',
+            'Règles SD-WAN par application',
+            'Monitoring SLA des liens',
+            'Basculement automatique',
+            'Politiques de sécurité unifiées',
           ]
         : [
-            'Enrollments & student records',
-            'Schedules and attendance',
-            'Grades, transcripts and assessments',
-            'Payments and receipts',
-            'Parent & teacher portals',
-            'Notifications and messaging',
+            'Site-to-site IPsec tunnels',
+            'Application-aware SD-WAN rules',
+            'Per-link SLA monitoring',
+            'Automatic link failover',
+            'Unified security policies',
           ],
       impact: FR
-        ? "Pilotage centralisé de l'établissement, communication fluide avec les familles et reporting fiable pour la direction."
-        : 'Centralized institution management, smooth family communication, and reliable reporting for leadership.',
-      tags: ['SaaS', 'React', 'Node.js', 'PostgreSQL', 'Multi-tenant'],
+        ? "Connectivité inter-sites résiliente avec sélection de chemin intelligente et continuité de service en cas de panne."
+        : 'Resilient inter-site connectivity with intelligent path selection and service continuity on link failure.',
+      tags: ['FortiGate', 'SD-WAN', 'IPsec', 'BGP', 'Routing'],
     },
     {
-      id: 'insurance',
-      icon: <ShieldCheck className="h-4 w-4" />,
-      category: FR ? 'Application locale · Assurance' : 'Local app · Insurance',
-      title: FR
-        ? "Logiciel de gestion pour cabinet d'assurance"
-        : 'Insurance cabinet management system',
+      id: 'firewall',
+      icon: <Shield className="h-4 w-4" />,
+      category: FR ? 'Sécurité · Pare-feux' : 'Security · Firewalls',
+      title: FR ? 'Benchmark de pare-feux nouvelle génération' : 'Next-gen firewall benchmark',
       tagline: FR
-        ? "Application locale avec module de réservation client pour cabinets d'assurance."
-        : 'Local application with client-side reservation module for insurance cabinets.',
+        ? "Comparatif pratique FortiGate, pfSense et BIG-IP sur des cas réseau et sécurité concrets."
+        : 'Hands-on comparison of FortiGate, pfSense and BIG-IP across real networking and security scenarios.',
       problem: FR
-        ? "Les cabinets d'assurance traitent contrats, sinistres et rendez-vous sur des outils manuels, sans coordination entre l'accueil client et la gestion interne."
-        : 'Insurance cabinets handle contracts, claims and appointments through manual tools, with no coordination between the client front desk and internal operations.',
+        ? "Choisir un pare-feu sans tests réels conduit à des architectures sous-dimensionnées ou mal adaptées au trafic et aux besoins de filtrage."
+        : 'Choosing a firewall without real testing leads to under-sized architectures that do not match real traffic and filtering needs.',
       solution: FR
-        ? "Un logiciel local sécurisé pour la gestion des clients, contrats et sinistres, couplé à un module de réservation côté client pour planifier rendez-vous et déclarations à distance."
-        : 'A secure local software for managing clients, contracts and claims, paired with a client-side reservation module to schedule appointments and declarations remotely.',
+        ? "Maquette en lab des trois solutions (FortiGate, pfSense, BIG-IP) avec mêmes scénarios : NAT, VPN, IPS, filtrage applicatif et load-balancing — puis comparatif documenté."
+        : 'Lab setup of the three solutions (FortiGate, pfSense, BIG-IP) on identical scenarios: NAT, VPN, IPS, application filtering and load-balancing — followed by a documented comparison.',
       role: FR
-        ? "Analyse métier, conception, développement de l'application desktop et du module de réservation, sécurisation des données."
-        : 'Business analysis, design, development of the desktop app and reservation module, data hardening.',
+        ? "Conception du protocole de test, déploiement des appliances, configuration et rédaction du comparatif."
+        : 'Test protocol design, appliance deployment, configuration and benchmark writeup.',
       features: FR
         ? [
-            'Fiches clients et contrats',
-            'Suivi des sinistres et échéances',
-            'Module de réservation en ligne',
-            'Notifications de rendez-vous',
-            'Historique et journal d’activité',
-            'Sauvegardes locales chiffrées',
+            'NAT, routage et VPN IPsec',
+            'IPS et filtrage applicatif',
+            'Load-balancing avec BIG-IP',
+            'Logs et reporting centralisés',
+            'Politiques sécurité comparables',
           ]
         : [
-            'Client and contract records',
-            'Claims and renewal tracking',
-            'Online reservation module',
-            'Appointment notifications',
-            'Full activity log and history',
-            'Encrypted local backups',
+            'NAT, routing and IPsec VPN',
+            'IPS and application filtering',
+            'Load-balancing with BIG-IP',
+            'Centralized logs and reporting',
+            'Comparable security policies',
           ],
       impact: FR
-        ? "Workflow fluide entre client et cabinet, moins d'oublis sur les renouvellements et meilleure expérience client."
-        : 'Smooth workflow between client and cabinet, fewer missed renewals, and a better client experience.',
-      tags: ['Desktop', 'TypeScript', 'SQLite', 'Reservations'],
+        ? "Décision d'architecture pare-feu basée sur des mesures concrètes, pas sur des fiches produit."
+        : 'Firewall architecture decisions backed by hands-on measurements, not by datasheets.',
+      tags: ['FortiGate', 'pfSense', 'BIG-IP', 'IPS', 'VPN'],
     },
     {
-      id: 'parent',
-      icon: <Smartphone className="h-4 w-4" />,
-      category: FR ? 'Mobile · Parental control' : 'Mobile · Parental control',
-      title: FR ? 'Application mobile parentale' : 'Parent mobile app',
+      id: 'misp',
+      icon: <Radar className="h-4 w-4" />,
+      category: FR ? 'Cybersécurité · Threat Intel' : 'Cybersecurity · Threat Intel',
+      title: FR ? 'Plateforme MISP — Threat Intelligence & IOCs' : 'MISP platform — Threat Intelligence & IOCs',
       tagline: FR
-        ? "Pilotage et supervision de l'usage du téléphone par les enfants."
-        : "Manage and monitor children's phone usage.",
+        ? "Déploiement d'une plateforme MISP pour collecter, corréler et partager des indicateurs de compromission."
+        : 'MISP deployment to collect, correlate and share indicators of compromise.',
       problem: FR
-        ? "Les parents manquent d'outils simples pour encadrer le temps d'écran, les applications utilisées et la sécurité numérique de leurs enfants."
-        : 'Parents lack simple tools to control screen time, app usage and the digital safety of their children.',
+        ? "Sans threat intel structurée, les indicateurs de compromission restent dispersés et difficilement exploitables par les équipes sécurité."
+        : 'Without structured threat intel, indicators of compromise stay scattered and hard to operationalize for security teams.',
       solution: FR
-        ? "Une application mobile permettant aux parents de superviser à distance l'appareil de l'enfant : limites de temps, blocage d'apps, filtrage de contenu et alertes en cas d'usage suspect."
-        : "A mobile app letting parents remotely supervise the child's device: time limits, app blocking, content filtering and alerts on suspicious usage.",
+        ? "Déploiement et durcissement d'une instance MISP : feeds, taxonomies, partage entre communautés, et intégration avec un SIEM Wazuh pour enrichissement des alertes."
+        : 'Deployment and hardening of a MISP instance: feeds, taxonomies, community sharing, and integration with a Wazuh SIEM to enrich alerts.',
       role: FR
-        ? "Conception UX, développement mobile, intégration des contrôles système et sécurisation des échanges."
-        : 'UX design, mobile development, integration of system-level controls and securing all communications.',
+        ? "Installation, durcissement, configuration des feeds et intégration avec la stack de monitoring."
+        : 'Installation, hardening, feed configuration and integration with the monitoring stack.',
       features: FR
         ? [
-            'Limites de temps par app',
-            'Blocage et liste blanche',
-            'Filtrage de contenu',
-            'Localisation sécurisée',
-            'Rapports d’usage quotidiens',
-            'Alertes en temps réel',
+            'Feeds publics et privés',
+            'Taxonomies et galaxies',
+            'Partage inter-communautés',
+            'Intégration SIEM Wazuh',
+            'API pour automatisation',
           ]
         : [
-            'Per-app time limits',
-            'App blocking and allow-list',
-            'Content filtering',
-            'Secure location sharing',
-            'Daily usage reports',
-            'Real-time alerts',
+            'Public and private feeds',
+            'Taxonomies and galaxies',
+            'Cross-community sharing',
+            'Wazuh SIEM integration',
+            'API for automation',
           ],
       impact: FR
-        ? "Tranquillité d'esprit pour les parents et environnement numérique plus sûr pour les enfants."
-        : 'Peace of mind for parents and a safer digital environment for children.',
-      tags: ['React Native', 'Mobile', 'Security', 'Push'],
+        ? "Détection enrichie par du contexte de menace réel et capitalisation sur les incidents précédents."
+        : 'Detection enriched with real threat context and capitalization on previous incidents.',
+      tags: ['MISP', 'Wazuh', 'SIEM', 'Threat Intel', 'IOCs'],
+    },
+    {
+      id: 'monitoring-stack',
+      icon: <Activity className="h-4 w-4" />,
+      category: FR ? 'Supervision · Observabilité' : 'Monitoring · Observability',
+      title: FR ? 'Stack de supervision Zabbix, Prometheus & Grafana' : 'Zabbix, Prometheus & Grafana monitoring stack',
+      tagline: FR
+        ? "Supervision unifiée d'infrastructures hétérogènes avec dashboards et alerting."
+        : 'Unified monitoring for heterogeneous infrastructure with dashboards and alerting.',
+      problem: FR
+        ? "Les pannes sont détectées trop tard faute d'une vue consolidée des serveurs, services et équipements réseau."
+        : 'Outages are detected too late because there is no consolidated view of servers, services and network devices.',
+      solution: FR
+        ? "Mise en place d'une stack de supervision combinant Zabbix pour les équipements, Prometheus pour les services et Grafana pour la visualisation, avec alerting multi-canal."
+        : 'A monitoring stack combining Zabbix for devices, Prometheus for services and Grafana for visualization, with multi-channel alerting.',
+      role: FR
+        ? "Architecture, déploiement, création des dashboards et règles d'alerte."
+        : 'Architecture, deployment, dashboard creation and alert rule design.',
+      features: FR
+        ? [
+            'Templates Zabbix pour réseau et systèmes',
+            'Exporters Prometheus dédiés',
+            'Dashboards Grafana métiers',
+            'Alerting email / chat',
+            'Rétention et historisation',
+          ]
+        : [
+            'Zabbix templates for network and systems',
+            'Dedicated Prometheus exporters',
+            'Business-oriented Grafana dashboards',
+            'Email / chat alerting',
+            'Retention and historization',
+          ],
+      impact: FR
+        ? "Détection proactive des incidents et baisse significative du temps moyen de diagnostic."
+        : 'Proactive incident detection and a significant drop in mean time to diagnose.',
+      tags: ['Zabbix', 'Prometheus', 'Grafana', 'Alerting', 'Linux'],
+    },
+    {
+      id: 'nas',
+      icon: <HardDrive className="h-4 w-4" />,
+      category: FR ? 'Systèmes · Stockage' : 'Systems · Storage',
+      title: FR ? 'Conversion d’un PC en NAS (OpenMediaVault)' : 'Repurposing a PC into a NAS (OpenMediaVault)',
+      tagline: FR
+        ? "NAS auto-hébergé sur matériel recyclé : partages, snapshots et sauvegardes automatisées."
+        : 'Self-hosted NAS on recycled hardware: shares, snapshots and automated backups.',
+      problem: FR
+        ? "Besoin d'un stockage centralisé, fiable et sauvegardé sans investir dans un NAS commercial."
+        : 'Need for centralized, reliable and backed-up storage without investing in a commercial NAS.',
+      solution: FR
+        ? "Installation d'OpenMediaVault sur PC recyclé, configuration RAID, partages SMB/NFS, snapshots et stratégie de sauvegarde déportée."
+        : 'OpenMediaVault install on a repurposed PC, RAID configuration, SMB/NFS shares, snapshots and offsite backup strategy.',
+      role: FR
+        ? "Conception, installation, durcissement et automatisation des sauvegardes."
+        : 'Design, installation, hardening and backup automation.',
+      features: FR
+        ? [
+            'RAID logiciel et monitoring SMART',
+            'Partages SMB / NFS',
+            'Snapshots planifiés',
+            'Sauvegardes déportées chiffrées',
+            'Accès distant sécurisé (VPN)',
+          ]
+        : [
+            'Software RAID with SMART monitoring',
+            'SMB / NFS shares',
+            'Scheduled snapshots',
+            'Encrypted offsite backups',
+            'Secure remote access (VPN)',
+          ],
+      impact: FR
+        ? "Stockage fiable, sauvegardé et accessible à distance pour un coût matériel quasi nul."
+        : 'Reliable, backed-up storage with secure remote access at near-zero hardware cost.',
+      tags: ['OpenMediaVault', 'Linux', 'RAID', 'SMB', 'NFS', 'Backup'],
+    },
+    {
+      id: 'devops-ci',
+      icon: <Container className="h-4 w-4" />,
+      category: FR ? 'DevOps · Conteneurs' : 'DevOps · Containers',
+      title: FR ? 'Conteneurisation et CI/CD avec Docker' : 'Containerization and CI/CD with Docker',
+      tagline: FR
+        ? "Pipelines CI/CD pour livrer des services conteneurisés de manière reproductible."
+        : 'CI/CD pipelines to deliver containerized services in a reproducible way.',
+      problem: FR
+        ? "Déploiements manuels, incohérences entre environnements et absence de retour rapide en cas de régression."
+        : 'Manual deployments, drift between environments and no fast feedback on regressions.',
+      solution: FR
+        ? "Mise en conteneurs des services, écriture de pipelines GitHub Actions (build, test, scan, deploy) et déploiement reproductible via Docker Compose."
+        : 'Service containerization, GitHub Actions pipelines (build, test, scan, deploy) and reproducible deployments via Docker Compose.',
+      role: FR
+        ? "Conception des pipelines, écriture des Dockerfiles et industrialisation du déploiement."
+        : 'Pipeline design, Dockerfile authoring and deployment industrialization.',
+      features: FR
+        ? [
+            'Builds Docker multi-stage',
+            'Pipelines GitHub Actions',
+            'Scan vulnérabilités (Trivy)',
+            'Déploiement Docker Compose',
+            'Versionnage et rollback',
+          ]
+        : [
+            'Multi-stage Docker builds',
+            'GitHub Actions pipelines',
+            'Vulnerability scanning (Trivy)',
+            'Docker Compose deployment',
+            'Versioning and rollback',
+          ],
+      impact: FR
+        ? "Livraison plus rapide, environnements cohérents et régressions détectées en amont."
+        : 'Faster delivery, consistent environments and regressions caught early.',
+      tags: ['Docker', 'GitHub Actions', 'CI/CD', 'Trivy', 'Compose'],
+    },
+    {
+      id: 'openstack',
+      icon: <Cloud className="h-4 w-4" />,
+      category: FR ? 'Cloud · Privé' : 'Cloud · Private',
+      title: FR ? 'Cloud privé OpenStack' : 'OpenStack private cloud',
+      tagline: FR
+        ? "Déploiement d'un cloud privé OpenStack pour provisionner instances, réseaux et stockage à la demande."
+        : 'Private OpenStack cloud to provision instances, networks and storage on demand.',
+      problem: FR
+        ? "Besoin d'un environnement cloud souverain pour provisionner rapidement des ressources sans dépendre d'un fournisseur public."
+        : 'Need for a sovereign cloud environment to quickly provision resources without depending on a public provider.',
+      solution: FR
+        ? "Déploiement d'OpenStack (Nova, Neutron, Cinder, Glance, Keystone) sur un cluster, avec gestion des projets, quotas et réseaux virtuels."
+        : 'OpenStack deployment (Nova, Neutron, Cinder, Glance, Keystone) on a cluster, with project, quota and virtual network management.',
+      role: FR
+        ? "Architecture, installation des services, configuration réseau et tests de provisionnement."
+        : 'Architecture, service install, network configuration and provisioning tests.',
+      features: FR
+        ? [
+            'Compute Nova multi-noeuds',
+            'Réseaux virtuels Neutron',
+            'Stockage bloc Cinder',
+            'Catalogue d’images Glance',
+            'Quotas et projets isolés',
+          ]
+        : [
+            'Multi-node Nova compute',
+            'Neutron virtual networks',
+            'Cinder block storage',
+            'Glance image catalog',
+            'Isolated projects and quotas',
+          ],
+      impact: FR
+        ? "Provisionnement de ressources cloud à la demande sur infrastructure interne."
+        : 'On-demand cloud resource provisioning on internal infrastructure.',
+      tags: ['OpenStack', 'Nova', 'Neutron', 'KVM', 'Linux'],
     },
     {
       id: 'homelab',
